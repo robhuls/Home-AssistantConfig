@@ -1,0 +1,12 @@
+    sensor.rolluik_*_energy:
+      hidden: true
+    sensor.rolluik_*_power:
+      hidden: true
+    sensor.rolluik_*_previous_reading:
+      hidden: true
+    sensor.power_*:
+      hidden: true
+    sensor.voltage_*:
+      hidden: true
+    device_tracker.*:
+      hidden: true

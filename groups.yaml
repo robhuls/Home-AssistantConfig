@@ -31,6 +31,7 @@
       - group.energy
       - group.temperatures
       - group.data_usage
+      - history_graph.power
   rolluiken:
     name: Rolluiken
     entities:

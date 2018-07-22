@@ -1,33 +1,3 @@
-    sensor.rolluik_keuken_energy:
-      hidden: true
-    sensor.rolluik_keuken_power:
-      hidden: true
-    sensor.rolluik_keuken_previous_reading:
-      hidden: true
-    sensor.rolluik_links_energy:
-      hidden: true
-    sensor.rolluik_links_power:
-      hidden: true
-    sensor.rolluik_links_previous_reading:
-      hidden: true
-    sensor.rolluik_rechts_energy:
-      hidden: true
-    sensor.rolluik_rechts_power:
-      hidden: true
-    sensor.rolluik_rechts_previous_reading:
-      hidden: true
-    sensor.rolluik_voor_energy:
-      hidden: true
-    sensor.rolluik_voor_power:
-      hidden: true
-    sensor.rolluik_voor_previous_reading:
-      hidden: true
-    sensor.rolluik_zij_energy:
-      hidden: true
-    sensor.rolluik_zij_power:
-      hidden: true
-    sensor.rolluik_zij_previous_reading:
-      hidden: true
     sensor.rolluik_zij_exporting:
       hidden: true
     sensor.rolluik_zij_interval:
@@ -58,8 +28,6 @@
     sensor.voltage_swells_phase_l3:
       hidden: true
     # Hide artificial sensors we need for the alarm clock
-    sensor.time:
-      hidden: true
     sensor.alarm_clock_hour:
       hidden: true
     sensor.alarm_clock_minute:

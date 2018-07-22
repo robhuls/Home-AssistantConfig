@@ -6,7 +6,7 @@ homeassistant:
   unit_system: metric
   time_zone: Europe/Amsterdam
   customize: !include customize.yaml
-
+  customize_glob: !include customize_glob.yaml
 # Enable the frontend
 frontend:
 
@@ -17,6 +17,8 @@ influxdb:
       - sensor.fritz_netmonitor
       - sensor.power_consumption
       - sensor.power_production
+      - sensor.power_production_total
+      - sensor.power_consumption_total
       - sensor.received_eth0
       - sensor.sent_eth0
       - sensor.livingroom_temperature
@@ -26,22 +28,6 @@ influxdb:
 
 # Alexa
 alexa:
-
-# Enable support for tracking state changes over time
-# history:
-
-# history_graph:
-#   gr1:
-#     name: Temperature Graph
-#     entities:
-#       - sensor.outside_temperature
-#       - sensor.livingroom_temperature
-#       - sensor.hall_temperature
-#       - sensor.rolluik_zij_temperature
-#       - sensor.kitchen_temperature
-#       - sensor.toilet_temperature
-#     hours_to_show: 24
-#     refresh: 60
 
 # Enable the hass.io tab
 hassio:
@@ -69,6 +55,8 @@ sun:
 
 # discover components
 discovery:
+  ignore:
+    - daikin
 
 # Philips Hue lights
 hue:
@@ -168,6 +156,10 @@ sensor:
     unit_of_measurement: Lux
     name: 'Restroom light level'
   # Create an alarm clock
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
   - platform: template
     sensors:
       alarm_clock_hour:

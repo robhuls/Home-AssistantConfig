@@ -1,0 +1,313 @@
+homeassistant:
+  name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 0
+  unit_system: metric
+  time_zone: Europe/Amsterdam
+  customize: !include customize.yaml
+
+# Enable the frontend
+frontend:
+
+# influxdb for visuals on MacBook
+influxdb:
+  include:
+    entities:
+      - sensor.fritz_netmonitor
+      - sensor.power_consumption
+      - sensor.power_production
+      - sensor.received_eth0
+      - sensor.sent_eth0
+      - sensor.livingroom_temperature
+      - sensor.outside_temperature
+      - sensor.hall_temperature
+      - climate.daikin
+
+# Alexa
+alexa:
+
+# Enable support for tracking state changes over time
+# history:
+
+# history_graph:
+#   gr1:
+#     name: Temperature Graph
+#     entities:
+#       - sensor.outside_temperature
+#       - sensor.livingroom_temperature
+#       - sensor.hall_temperature
+#       - sensor.rolluik_zij_temperature
+#       - sensor.kitchen_temperature
+#       - sensor.toilet_temperature
+#     hours_to_show: 24
+#     refresh: 60
+
+# Enable the hass.io tab
+hassio:
+
+# Enable configuration UI
+config:
+
+# Configure logging
+logger:
+  default: debug
+
+# Configure the web interface
+http:
+  api_password: !secret http_password
+  trusted_networks:
+    - 127.0.0.1
+    - 192.168.10.0/24
+  server_port: 443
+  base_url: !secret base_url
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+# Track the sun
+sun:
+
+# discover components
+discovery:
+
+# Philips Hue lights
+hue:
+  bridges:
+    - host: 192.168.10.22
+
+# Zwave network
+zwave:
+  usb_path: /dev/ttyACM0
+
+# iOS component
+ios:
+
+# RFXCOM
+rfxtrx:
+  device: /dev/ttyUSB1
+  # device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1XSUJYH-if00-port0
+
+# Smart meter, buienradar, Cresta, Fritz, Certificate, Hue sensors
+sensor:
+  - platform: dsmr
+    port: /dev/ttyUSB2
+    # port: /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A703CYCN-if00-port0
+    dsmr_version: 4
+  - platform: buienradar
+    name: Outside
+    monitored_conditions:
+      - temperature
+      - windspeed
+  - platform: rfxtrx
+    devices:
+      0a520701310e00b43b0159:
+        name: Livingroom
+  - platform: fritzbox_netmonitor
+  - platform: systemmonitor
+    resources:
+      - type: network_in
+        arg: eth0
+      - type: network_out
+        arg: eth0
+  - platform: template
+    sensors:
+      download:
+        value_template: "{{ '%.1f'|format(states.sensor.fritz_netmonitor.attributes.bytes_received/1024/1024/1024) }}"
+        unit_of_measurement: 'Gb'
+        icon_template: mdi:download
+  - platform: template
+    sensors:
+      upload:
+        value_template: "{{ '%.1f'|format(states.sensor.fritz_netmonitor.attributes.bytes_sent/1024/1024/1024) }}"
+        unit_of_measurement: 'Gb'
+        icon_template: mdi:upload
+  # Parse sensor values from the philips Hue platform
+  - platform: rest
+    resource: http://192.168.10.22/api/9BMePcyRlGQlhW8UmJ5Qxa6-swybrhibFo39tT-D/sensors/2
+    value_template: '{{ value_json.state.temperature | float / 100 }}'
+    unit_of_measurement: °C
+    name: 'Hall temperature'
+  - platform: rest
+    resource: http://192.168.10.22/api/9BMePcyRlGQlhW8UmJ5Qxa6-swybrhibFo39tT-D/sensors/7
+    value_template: '{{ value_json.state.temperature | float / 100 }}'
+    unit_of_measurement: °C
+    name: 'Kitchen temperature'
+  - platform: rest
+    resource: http://192.168.10.22/api/9BMePcyRlGQlhW8UmJ5Qxa6-swybrhibFo39tT-D/sensors/11
+    value_template: '{{ value_json.state.temperature | float / 100 }}'
+    unit_of_measurement: °C
+    name: 'Restroom temperature'
+  - platform: rest
+    resource: http://192.168.10.22/api/9BMePcyRlGQlhW8UmJ5Qxa6-swybrhibFo39tT-D/sensors/4
+    value_template: '{{ value_json.state.lightlevel }}'
+    unit_of_measurement: Lux
+    name: 'Hall light level'
+  - platform: rest
+    resource: http://192.168.10.22/api/9BMePcyRlGQlhW8UmJ5Qxa6-swybrhibFo39tT-D/sensors/9
+    value_template: '{{ value_json.state.lightlevel }}'
+    unit_of_measurement: Lux
+    name: 'Kitchen light level'
+  - platform: rest
+    resource: http://192.168.10.22/api/9BMePcyRlGQlhW8UmJ5Qxa6-swybrhibFo39tT-D/sensors/13
+    value_template: '{{ value_json.state.lightlevel }}'
+    unit_of_measurement: Lux
+    name: 'Restroom light level'
+  # Create an alarm clock
+  - platform: template
+    sensors:
+      alarm_clock_hour:
+        value_template: '{{ states.input_number.alarm_clock_hour.state | int }}'
+      alarm_clock_minute:
+        value_template: '{{ states.input_number.alarm_clock_minute.state | int }}'
+      alarm_clock_time:
+        value_template: >-
+          {{ states.sensor.alarm_clock_hour.state }}:
+          {%- if states.sensor.alarm_clock_minute.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.alarm_clock_minute.state }}
+      alarm_clock_time_long:
+        value_template: >-
+          {% if states.sensor.alarm_clock_hour.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.alarm_clock_hour.state }}:
+          {%- if states.sensor.alarm_clock_minute.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.alarm_clock_minute.state }}
+
+switch:
+  - platform: rfxtrx
+    devices:
+      0b11000100ced7f209010f60:
+        name: Kitchen Light Right
+      0b11000200ced7f20a010f70:
+        name: Kitchen Light Left
+      0b11000400ced7f20b000060:
+        name: Bookcase Light
+      0b11000100e1dcf20c010f50:
+        name: Bedroom Switch Left
+        fire_event: True
+      0b11000300e1dcf20b010f50:
+        name: Bedroom Switch Right
+        fire_event: True
+      0b11000500fd656e0c000050:
+        name: Livingroom Switch Left
+        fire_event: True
+      0b11000900fd656e0b000060:
+        name: Livingroom Switch Right
+        fire_event: True
+      0b11000d00ed971e0c010f70:
+        name: Kitchen Switch Left
+        fire_event: True
+      0b11001400ed971e0b000070:
+        name: Kitchen Switch Right
+        fire_event: True
+
+# Full off (saves 15W) for NAD, custom_component
+# nad_off:
+
+# Device trackers
+device_tracker:
+  - platform: fritz
+
+# NAD7050 and spotify
+media_player:
+  - platform: nadtcp
+    name: NAD7050
+    host: 192.168.10.23
+  - platform: spotify
+    client_id: !secret spotify_id
+    client_secret: !secret spotify_secret
+
+# Daikin heat pump
+climate:
+  - platform: daikin
+    name: daikin
+    host: 192.168.10.26
+    monitored_conditions:
+      - inside_temperature
+      - outside_temperature
+
+# Alexa intents
+intent_script:
+  ActivateSceneIntent:
+    action:
+      service: scene.turn_on
+      data_template:
+        entity_id: scene.{{ Scene | replace(" ", "_") }}
+    speech:
+      type: plain
+      text: OK
+  RunScriptIntent:
+    action:
+      service: script.turn_on
+      data_template:
+        entity_id: script.{{ Script | replace(" ", "_") }}
+    speech:
+      type: plain
+      text: done
+  TemperatureIntent:
+    speech:
+      type: plain
+      text: "It is {{states('sensor.outside_temperature')}} degrees"
+  RadioIntent:
+    action:
+      service: script.turn_on
+      data_template:
+        entity_id: script.{{ Station | replace(" ", "_") }}
+    speech:
+      type: plain
+      text: playing {{Station}}
+  amzn1.ask.skill.3c129696-0f67-4a27-9a25-e458c8353469:
+    action:
+      service: script.turn_on
+      entity_id: script.quiet
+    speech:
+      type: plain
+      text: OK
+
+# Make my alarm clock
+input_number:
+  alarm_clock_hour:
+    name: Hour
+    icon: mdi:timer
+    initial: 6
+    min: 0
+    max: 23
+    step: 1
+  alarm_clock_minute:
+    name: Minute
+    icon: mdi:timer
+    initial: 15
+    min: 0
+    max: 55
+    step: 5
+
+input_boolean:
+  alarm_clock_status:
+    name: Alarm Clock Status
+    initial: off
+    icon: mdi:alarm-check
+  alarm_clock_radio:
+    name: Alarm Clock Radio
+    initial: on
+    icon: mdi:radio
+
+# Input for selecting radio station
+input_select:
+  radio_station:
+    name: 'Select Radio Station:'
+    options:
+      - Radio 1
+      - Radio 2
+      - BNR Nieuwsradio
+      - 40up Radio
+      - Sublime FM
+    icon: mdi:radio
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml

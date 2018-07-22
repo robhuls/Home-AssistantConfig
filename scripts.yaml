@@ -1,0 +1,75 @@
+  wake_up:
+    sequence:
+      - service: light.turn_on
+        data: 
+          entity_id: light.bedroom
+          brightness: 255
+          transition: 180
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.nad7050
+          volume_level: 0.40
+      - service: climate.set_operation_mode
+        data:
+          entity_id: climate.daikin
+          operation_mode: 'Heat'
+      - service: script.radio
+
+  radio:
+    alias: Play Radio
+    sequence:
+      - service: media_player.turn_on
+        data_template:
+          entity_id: media_player.nad7050
+      - service: media_player.select_source
+        data_template: 
+          entity_id: media_player.nad7050
+          source: Optical 2
+      - service: media_player.play_media
+        data_template:
+          entity_id: media_player.chromecast_audio
+          media_content_id: >
+            {% if is_state("input_select.radio_station", "Radio 1") %} http://icecast.omroep.nl/radio1-bb-mp3
+            {% elif is_state("input_select.radio_station", "Radio 2") %} http://icecast.omroep.nl/radio2-bb-mp3
+            {% elif is_state("input_select.radio_station", "BNR Nieuwsradio") %} http://icecast-bnr.cdp.triple-it.nl/bnr_mp3_96_03
+            {% elif is_state("input_select.radio_station", "40up Radio") %} http://40upstream.live-streams.nl:80/40up1
+            {% elif is_state("input_select.radio_station", "Sublime FM") %} http://stream.sublimefm.nl/SublimeFM_mp3
+            {% endif %}
+          media_content_type: 'audio/mp4'
+  radio_1:
+    alias: play radio 1 from Alexa
+    sequence:
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.radio_station
+          option: "Radio 1"
+      - service: script.turn_on
+        data_template:
+          entity_id: script.radio
+  radio_2:
+    alias: play radio 2 from Alexa
+    sequence:
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.radio_station
+          option: "Radio 2"
+      - service: script.turn_on
+        data_template:
+          entity_id: script.radio
+  fourty:
+    alias: play 40up from Alexa
+    sequence:
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.radio_station
+          option: "40up Radio"
+      - service: script.turn_on
+        data_template:
+          entity_id: script.radio
+  
+  quiet:
+    alias: quiet
+    sequence:
+      - service: media_player.media_stop
+        data_template:
+          entity_id: media_player.chromecast_audio

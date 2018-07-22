@@ -1,0 +1,151 @@
+- alias: turn on livingroom lights using switch
+  trigger:
+    - platform: event
+      event_type: button_pressed
+      event_data: {"state": "on", "entity_id": "switch.bedroom_switch_left"}
+    - platform: event
+      event_type: button_pressed
+      event_data: {"state": "on", "entity_id": "switch.livingroom_switch_left"}
+    - platform: event
+      event_type: button_pressed
+      event_data: {"state": "on", "entity_id": "switch.kitchen_switch_right"}
+  action:
+    service: scene.turn_on
+    entity_id: scene.normal
+
+- alias: turn off livingroom lights using switch
+  trigger:
+    - platform: event
+      event_type: button_pressed
+      event_data: {"state": "off", "entity_id": "switch.bedroom_switch_left"}
+    - platform: event
+      event_type: button_pressed
+      event_data: {"state": "off", "entity_id": "switch.livingroom_switch_left"}
+    - platform: event
+      event_type: button_pressed
+      event_data: {"state": "off", "entity_id": "switch.kitchen_switch_right"}
+  action:
+    service: scene.turn_on
+    entity_id: scene.dark
+
+- alias: open covers using switch
+  trigger:
+    platform: event
+    event_type: button_pressed
+    event_data: {"state": "on", "entity_id": "switch.bedroom_switch_right"}
+  action:
+    service: scene.turn_on
+    entity_id: scene.open
+
+- alias: close covers using switch
+  trigger:
+    platform: event
+    event_type: button_pressed
+    event_data: {"state": "off", "entity_id": "switch.bedroom_switch_right"}
+  action:
+      service: scene.turn_on
+      entity_id: scene.closed
+
+- alias: close covers after sundown
+  trigger:
+    platform: sun
+    event: sunset
+    offset: '00:35:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.closed
+
+- alias: open covers when I am not home
+  trigger:
+    platform: time
+    at: '08:00:00'
+  condition:
+    condition: state
+    entity_id: device_tracker.iphone_2
+    state: not_home
+  action:
+    service: scene.turn_on
+    entity_id: scene.open
+
+- alias: open covers at 1300 when it is hot
+  trigger:
+    platform: time
+    at: '13:00:00'
+  condition:
+    condition: state
+    entity_id: device_tracker.iphone_2
+    state: not_home
+  action:
+    service: scene.turn_on
+    entity_id: scene.open
+
+- alias: lights on after sundown
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "00:10:00"
+  condition:
+    condition: state
+    entity_id: device_tracker.iphone_2
+    state: home
+  action:
+    service: scene.turn_on
+    entity_id: scene.normal
+
+- alias: fade in hue on sundown
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "00:05:00"
+  condition:
+    condition: state
+    entity_id: device_tracker.iphone_2
+    state: home
+  action:
+    service: scene.turn_on
+    entity_id: scene.fade_in_hue
+
+- alias: lights on when I get home
+  trigger:
+    platform: state
+    entity_id: device_tracker.iphone_2
+  condition:
+    condition: and
+    conditions:
+      - condition: sun
+        after: sunset
+      - condition: state
+        entity_id: device_tracker.iphone_2
+        state: home  
+  action:
+    - service: scene.turn_on
+      entity_id: scene.normal
+    - service: light.turn_on
+      entity_id: light.hall
+
+- alias: turn on heating when it is too cold
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.livingroom_temperature
+    below: 15.0
+  action:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.daikin
+        operation_mode: 'Heat'
+    - service: climate.set_temperature
+      data:  
+        entity_id: climate.daikin
+        temperature: 20
+
+- alias: Hue light on gradually with alarm
+  hide_entity: False
+  trigger:
+    platform: template
+    value_template: '{{ states.sensor.time.state == states.sensor.alarm_clock_time_long.state }}'
+  condition:
+    condition: state
+    entity_id: input_boolean.alarm_clock_status
+    state: 'on'
+  action:
+    service: script.wake_up

@@ -1,0 +1,76 @@
+    sensor.rolluik_keuken_energy:
+      hidden: true
+    sensor.rolluik_keuken_power:
+      hidden: true
+    sensor.rolluik_keuken_previous_reading:
+      hidden: true
+    sensor.rolluik_links_energy:
+      hidden: true
+    sensor.rolluik_links_power:
+      hidden: true
+    sensor.rolluik_links_previous_reading:
+      hidden: true
+    sensor.rolluik_rechts_energy:
+      hidden: true
+    sensor.rolluik_rechts_power:
+      hidden: true
+    sensor.rolluik_rechts_previous_reading:
+      hidden: true
+    sensor.rolluik_voor_energy:
+      hidden: true
+    sensor.rolluik_voor_power:
+      hidden: true
+    sensor.rolluik_voor_previous_reading:
+      hidden: true
+    sensor.rolluik_zij_energy:
+      hidden: true
+    sensor.rolluik_zij_power:
+      hidden: true
+    sensor.rolluik_zij_previous_reading:
+      hidden: true
+    sensor.rolluik_zij_exporting:
+      hidden: true
+    sensor.rolluik_zij_interval:
+      hidden: true
+    sensor.rolluik_zij_interval_2:
+      hidden: true
+    sensor.rolluik_zij_previous_reading_2:
+      hidden: true
+    sensor.power_tariff:
+      hidden: true
+    device_tracker.chromecast:
+      hidden: true
+    # Hide power phases we do not have
+    sensor.power_consumption_phase_l2:
+      hidden: true
+    sensor.power_consumption_phase_l3:
+      hidden: true
+    sensor.power_production_phase_l2:
+      hidden: true
+    sensor.power_production_phase_l3:
+      hidden: true
+    sensor.voltage_sags_phase_l2:
+      hidden: true
+    sensor.voltage_sags_phase_l3:
+      hidden: true
+    sensor.voltage_swells_phase_l2:
+      hidden: true
+    sensor.voltage_swells_phase_l3:
+      hidden: true
+    # Hide artificial sensors we need for the alarm clock
+    sensor.time:
+      hidden: true
+    sensor.alarm_clock_hour:
+      hidden: true
+    sensor.alarm_clock_minute:
+      hidden: true
+    sensor.alarm_clock_time_long:
+      hidden: true
+    sensor.alarm_clock_time:
+      friendly_name: 'Alarm Clock Setting'
+      icon: mdi:alarm
+
+    # Rename start ratio button
+    script.radio:
+      friendly_name: Start Playing
+      icon: mdi:play

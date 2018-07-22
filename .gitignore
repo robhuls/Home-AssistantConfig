@@ -1,0 +1,7 @@
+*
+!*.yaml
+!.gitignore
+!custom_components
+._*yaml
+secrets.yaml
+known_devices.yaml

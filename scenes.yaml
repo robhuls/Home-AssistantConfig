@@ -1,0 +1,166 @@
+  - name: night
+    entities:
+        group.hue_livingroom:
+          state: off
+        switch.bookcase_light:
+          state: off
+        group.lights_kitchen:
+          state: off
+        light.kitchen:
+          state: off
+        media_player.nad7050:
+          state: off
+        light.hall:
+          state: off
+        light.toilet:
+          state: off
+        climate.daikin:
+          operation_mode: 'Off'
+        light.bedroom:
+          state: on
+  - name: away
+    entities:
+        group.hue_livingroom:
+          state: off
+        switch.bookcase_light:
+          state: off
+        group.lights_kitchen:
+          state: off
+        light.kitchen:
+          state: off
+        light.hall:
+          state: off
+        light.toilet:
+          state: off
+        light.bedroom:
+          state: off
+        media_player.nad7050:
+          state: off
+        media_player.chromecast_audio:
+          state: off
+        climate.daikin:
+          operation_mode: 'Off'
+  - name: breakfast
+    entities:
+        group.hue_livingroom:
+          state: on
+          color_temp: 400
+          brightness_pct: 100
+        switch.bookcase_light:
+          state: on
+        group.lights_kitchen:
+          state: on
+        climate.daikin:
+          operation_mode: 'Heat'
+        cover.rolluik_keuken_switch:
+          state: open
+        cover.rolluik_links_switch:
+          state: open
+        cover.rolluik_rechts_switch:
+          state: open
+        cover.rolluik_voor_switch:
+          state: open
+        cover.rolluik_zij_switch:
+          state: open
+  - name: tv
+    entities:
+        media_player.chromecast_tv:
+          state: on
+        media_player.nad7050:
+          source: 'Optical 1'
+  - name: movie
+    entities:
+        group.hue_livingroom:
+          state: on
+          color_temp: 500
+          brightness_pct: 10
+        switch.bookcase_light:
+          state: off
+        group.lights_kitchen:
+          state: off
+        light.kitchen:
+          state: off
+        light.hall:
+          state: off
+        light.toilet:
+          state: off
+        light.bedroom:
+          state: off
+        media_player.chromecast_tv:
+          state: on
+        media_player.nad7050:
+          source: 'Optical 1'
+  - name: normal
+    entities:
+        group.hue_livingroom:
+          state: on
+          color_temp: 400
+          brightness_pct: 100
+        switch.bookcase_light:
+          state: on
+        group.lights_kitchen:
+          state: on
+  - name: dark
+    entities:
+        group.hue_livingroom:
+          state: off
+        switch.bookcase_light:
+          state: off
+        group.lights_kitchen:
+          state: off
+        light.kitchen:
+          state: off
+        light.bedroom:
+          state: off
+        light.hall:
+          state: off
+        light.toilet:
+          state: off
+  - name: fade_in_hue
+    entities:
+      group.hue_livingroom:
+        state: on
+        color_temp: 400
+        brightness_pct: 100
+        transition: 300
+# Covers do not work in combination with groups
+  - name: closed
+    entities:
+        cover.rolluik_keuken_switch:
+          state: closed
+        cover.rolluik_links_switch:
+          state: closed
+        cover.rolluik_rechts_switch:
+          state: closed
+        cover.rolluik_voor_switch:
+          state: closed
+        cover.rolluik_zij_switch:
+          state: closed
+  - name: open
+    entities:
+        cover.rolluik_keuken_switch:
+          state: open
+        cover.rolluik_links_switch:
+          state: open
+        cover.rolluik_rechts_switch:
+          state: open
+        cover.rolluik_voor_switch:
+          state: open
+        cover.rolluik_zij_switch:
+          state: open
+  - name: bedroom
+    entities:
+        light.bedroom:
+          state: on
+  - name: bedroom_off
+    entities:
+        light.bedroom:
+          state: off         
+  - name: heater
+    entities:
+        climate.daikin:
+          operation_mode: 'Heat'
+  - name: heater_off
+    entities:
+        climate.daikin:
+          operation_mode: 'Off'

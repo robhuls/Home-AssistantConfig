@@ -1,0 +1,290 @@
+light.hall_2:
+  config_entry_id:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:44:c3:29-0b
+light.livingroom_right:
+  config_entry_id:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:00:b3:74:13-0b
+light.kitchen:
+  config_entry_id:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:00:db:89:e7-0b
+light.livingroom_back:
+  config_entry_id:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:e7:a7:8a-0b
+light.livingroom_left:
+  config_entry_id:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:00:e0:11:ea-0b
+light.bedroom_2:
+  config_entry_id:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:b9:53:b5-0b
+light.toilet_2:
+  config_entry_id:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:b3:38:6a-0b
+cover.rolluik_keuken_switch:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076282880
+switch.rolluik_keuken_switch:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076282880
+cover.rolluik_keuken_level:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076299265
+sensor.rolluik_keuken_energy:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076495874
+sensor.rolluik_keuken_previous_reading:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076495890
+sensor.rolluik_keuken_power:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076496002
+cover.rolluik_links_switch:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093060096
+switch.rolluik_links_switch:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093060096
+cover.rolluik_links_level:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093076481
+sensor.rolluik_links_energy:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093273090
+sensor.rolluik_links_previous_reading:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093273106
+sensor.rolluik_links_power:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093273218
+cover.rolluik_rechts_switch:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 4-72057594109837312
+switch.rolluik_rechts_switch:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 4-72057594109837312
+cover.rolluik_rechts_level:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 4-72057594109853697
+sensor.rolluik_rechts_energy:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 4-72057594110050306
+sensor.rolluik_rechts_previous_reading:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 4-72057594110050322
+sensor.rolluik_rechts_power:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 4-72057594110050434
+cover.rolluik_voor_switch:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 6-72057594143391744
+switch.rolluik_voor_switch:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 6-72057594143391744
+cover.rolluik_voor_level:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 6-72057594143408129
+sensor.rolluik_voor_energy:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 6-72057594143604738
+sensor.rolluik_voor_previous_reading:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 6-72057594143604754
+sensor.rolluik_voor_power:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 6-72057594143604866
+cover.rolluik_zij_switch:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193723392
+switch.rolluik_zij_switch:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193723392
+cover.rolluik_zij_level:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193739777
+sensor.rolluik_zij_temperature:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193920018
+sensor.rolluik_zij_energy:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936386
+sensor.rolluik_zij_previous_reading:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936402
+sensor.rolluik_zij_interval:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936419
+sensor.rolluik_zij_power:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936514
+sensor.rolluik_zij_previous_reading_2:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936530
+sensor.rolluik_zij_interval_2:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936547
+sensor.rolluik_zij_exporting:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936896
+media_player.chromecast_audio:
+  config_entry_id:
+  name:
+  platform: cast
+  unique_id: 2d6023dc-2c3d-e7e0-fbbc-90476b34dbd2
+media_player.chromecast_tv:
+  config_entry_id:
+  name:
+  platform: cast
+  unique_id: 081878d9-ad91-d608-e346-c56993c00540
+sensor.outside_wind_speed:
+  config_entry_id:
+  name:
+  platform: buienradar
+  unique_id: 52.5404026.065490windspeed
+sensor.outside_temperature:
+  config_entry_id:
+  name:
+  platform: buienradar
+  unique_id: 52.5404026.065490temperature
+zwave.aeotec_zw090_zstick_gen5_eu:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-1
+zwave.rolluik_keuken:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-2
+zwave.rolluik_links:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-3
+zwave.rolluik_rechts:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-4
+zwave.rolluik_voor:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-6
+zwave.rolluik_zij:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-9
+media_player.apple_tv:
+  config_entry_id:
+  name:
+  platform: apple_tv
+  unique_id: 9d94dbbc4c59be780f0790e7b5ddb206d21ccf087457f59211aa2258f8c83725
+remote.apple_tv:
+  config_entry_id:
+  name:
+  platform: apple_tv
+  unique_id: 9d94dbbc4c59be780f0790e7b5ddb206d21ccf087457f59211aa2258f8c83725
+sensor.iphone_battery_state:
+  config_entry_id:
+  name:
+  platform: ios
+  unique_id: state_iphone
+sensor.iphone_battery_level:
+  config_entry_id:
+  name:
+  platform: ios
+  unique_id: level_iphone
+sensor.robs_ipad_battery_level:
+  config_entry_id:
+  name:
+  platform: ios
+  unique_id: level_robs_ipad
+sensor.robs_ipad_battery_state:
+  config_entry_id:
+  name:
+  platform: ios
+  unique_id: state_robs_ipad

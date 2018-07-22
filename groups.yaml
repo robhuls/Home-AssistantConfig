@@ -31,7 +31,6 @@
       - group.energy
       - group.temperatures
       - group.data_usage
-      - group.date_time
   rolluiken:
     name: Rolluiken
     entities:
@@ -40,20 +39,13 @@
       - cover.rolluik_rechts_switch
       - cover.rolluik_voor_switch
       - cover.rolluik_zij_switch
-  date_time:
-    name: Date and Time
-    entities:
-      - sensor.time
-      - sensor.date
   energy:
     name: Energy
     entities:
       - sensor.power_consumption
-      - sensor.power_consumption_normal
-      - sensor.power_consumption_low
       - sensor.power_production
-      - sensor.power_production_normal
-      - sensor.power_production_low
+      - sensor.power_production_total
+      - sensor.power_consumption_total
   hue_livingroom:
     name: Hue Livingroom
     entities:

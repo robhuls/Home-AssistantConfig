@@ -121,6 +121,21 @@ sensor:
         value_template: "{{ '%.1f'|format(states.sensor.fritz_netmonitor.attributes.bytes_sent/1024/1024/1024) }}"
         unit_of_measurement: 'Gb'
         icon_template: mdi:upload
+  # Determine total power production and consumption
+  - platform: template
+    sensors:
+      power_production_total:
+        value_template: "{{'%.0f'|format(float(states.sensor.power_production_low.state) + float(states.sensor.power_production_normal.state))}}"
+        unit_of_measurement: 'kWh'
+        icon_template: mdi:flash
+        friendly_name: "Power Production"
+  - platform: template
+    sensors:
+      power_consumption_total:
+        value_template: "{{'%.0f'|format(float(states.sensor.power_consumption_low.state) + float(states.sensor.power_consumption_normal.state))}}"
+        unit_of_measurement: 'kWh'
+        icon_template: mdi:flash
+        friendly_name: "Power Consumption"
   # Parse sensor values from the philips Hue platform
   - platform: rest
     resource: http://192.168.10.22/api/9BMePcyRlGQlhW8UmJ5Qxa6-swybrhibFo39tT-D/sensors/2

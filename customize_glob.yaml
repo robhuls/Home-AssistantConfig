@@ -4,9 +4,12 @@
       hidden: true
     sensor.rolluik_*_previous_reading:
       hidden: true
-    sensor.power_*:
-      hidden: true
     sensor.voltage_*:
       hidden: true
     device_tracker.*:
+      hidden: true
+    # Hide the less interesting power sensors
+    sensor.power_consumption_*:
+      hidden: true
+    sensor.power_production_*:
       hidden: true

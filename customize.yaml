@@ -6,27 +6,6 @@
       hidden: true
     sensor.rolluik_zij_previous_reading_2:
       hidden: true
-    sensor.power_tariff:
-      hidden: true
-    device_tracker.chromecast:
-      hidden: true
-    # Hide power phases we do not have
-    sensor.power_consumption_phase_l2:
-      hidden: true
-    sensor.power_consumption_phase_l3:
-      hidden: true
-    sensor.power_production_phase_l2:
-      hidden: true
-    sensor.power_production_phase_l3:
-      hidden: true
-    sensor.voltage_sags_phase_l2:
-      hidden: true
-    sensor.voltage_sags_phase_l3:
-      hidden: true
-    sensor.voltage_swells_phase_l2:
-      hidden: true
-    sensor.voltage_swells_phase_l3:
-      hidden: true
     # Hide artificial sensors we need for the alarm clock
     sensor.alarm_clock_hour:
       hidden: true
@@ -37,7 +16,6 @@
     sensor.alarm_clock_time:
       friendly_name: 'Alarm Clock Setting'
       icon: mdi:alarm
-
     # Rename start ratio button
     script.radio:
       friendly_name: Start Playing

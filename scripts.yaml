@@ -9,10 +9,6 @@
         data:
           entity_id: media_player.nad7050
           volume_level: 0.40
-      - service: climate.set_operation_mode
-        data:
-          entity_id: climate.daikin
-          operation_mode: 'Heat'
       - service: script.radio
 
   radio:

@@ -7,8 +7,11 @@
       - scene.night
       - scene.closed
       - scene.open
-      - cover.rolluik_zij_level
+      - cover.rolluik_keuken_level
+      - cover.rolluik_links_level
+      - cover.rolluik_rechts_level
       - cover.rolluik_voor_level
+      - cover.rolluik_zij_level
       - climate.daikin
   media:
     name: Media

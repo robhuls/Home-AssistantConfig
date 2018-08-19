@@ -81,11 +81,11 @@ sensor:
     port: /dev/ttyUSB2
     # port: /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A703CYCN-if00-port0
     dsmr_version: 4
-  - platform: buienradar
-    name: Outside
-    monitored_conditions:
-      - temperature
-      - windspeed
+  # - platform: buienradar
+  #   name: Outside
+  #   monitored_conditions:
+  #     - temperature
+  #     - windspeed
   - platform: rfxtrx
     devices:
       0a520701310e00b43b0159:

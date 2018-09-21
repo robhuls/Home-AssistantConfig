@@ -6,18 +6,18 @@
           state: off
         group.lights_kitchen:
           state: off
-        light.kitchen:
+        light.kitchenlight:
           state: off
         media_player.nad7050:
           state: off
         light.hall:
           state: off
-        light.toilet:
-          state: off
         climate.daikin:
           operation_mode: 'Off'
-        light.bedroom:
+        light.bedroomstrip:
           state: on
+        media_player.chromecast_audio:
+          state: off
   - name: away
     entities:
         group.hue_livingroom:
@@ -26,11 +26,9 @@
           state: off
         group.lights_kitchen:
           state: off
-        light.kitchen:
+        light.kitchenlight:
           state: off
         light.hall:
-          state: off
-        light.toilet:
           state: off
         light.bedroom:
           state: off
@@ -78,11 +76,9 @@
           state: off
         group.lights_kitchen:
           state: off
-        light.kitchen:
+        light.kitchenlight:
           state: off
         light.hall:
-          state: off
-        light.toilet:
           state: off
         light.bedroom:
           state: off
@@ -108,13 +104,9 @@
           state: off
         group.lights_kitchen:
           state: off
-        light.kitchen:
-          state: off
         light.bedroom:
           state: off
         light.hall:
-          state: off
-        light.toilet:
           state: off
   - name: fade_in_hue
     entities:
@@ -148,14 +140,10 @@
           state: open
         cover.rolluik_zij_switch:
           state: open
-  - name: bedroom
-    entities:
-        light.bedroom:
-          state: on
   - name: bedroom_off
     entities:
         light.bedroom:
-          state: off         
+          state: off
   - name: heater
     entities:
         climate.daikin:

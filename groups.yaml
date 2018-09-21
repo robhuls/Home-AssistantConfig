@@ -17,6 +17,7 @@
     name: Media
     view: yes
     entities:
+      - media_player.lg_webos_smart_tv
       - media_player.nad7050
       - media_player.chromecast_tv
       - media_player.chromecast_audio
@@ -69,7 +70,7 @@
       - sensor.hall_temperature
       - sensor.rolluik_zij_temperature
       - sensor.kitchen_temperature
-      - sensor.toilet_temperature
+      - sensor.restroom_temperature
   # Data usage inside data tab
   data_usage:
     name: Data Usage

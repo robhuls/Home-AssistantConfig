@@ -219,6 +219,9 @@ switch:
 device_tracker:
   - platform: fritz
 
+# Wake-on-lan for LG TV
+wake_on_lan: # enables `wake_on_lan` domain
+
 # NAD7050 and spotify
 media_player:
   - platform: nadtcp
@@ -227,6 +230,12 @@ media_player:
   - platform: spotify
     client_id: !secret spotify_id
     client_secret: !secret spotify_secret
+  - platform: webostv
+    host: 192.168.10.45
+    turn_on_action:
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: "20-3D-BD-99-D7-AE"
 
 # Daikin heat pump
 climate:
@@ -309,6 +318,7 @@ input_select:
     options:
       - Radio 1
       - Radio 2
+      - Radio 10
       - BNR Nieuwsradio
       - 40up Radio
       - Sublime FM

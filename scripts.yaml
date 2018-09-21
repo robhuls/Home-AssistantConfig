@@ -27,6 +27,7 @@
           media_content_id: >
             {% if is_state("input_select.radio_station", "Radio 1") %} http://icecast.omroep.nl/radio1-bb-mp3
             {% elif is_state("input_select.radio_station", "Radio 2") %} http://icecast.omroep.nl/radio2-bb-mp3
+            {% elif is_state("input_select.radio_station", "Radio 10") %} http://stream.radio10.nl/radio10
             {% elif is_state("input_select.radio_station", "BNR Nieuwsradio") %} http://icecast-bnr.cdp.triple-it.nl/bnr_mp3_96_03
             {% elif is_state("input_select.radio_station", "40up Radio") %} http://40upstream.live-streams.nl:80/40up1
             {% elif is_state("input_select.radio_station", "Sublime FM") %} http://stream.sublimefm.nl/SublimeFM_mp3
@@ -52,6 +53,16 @@
       - service: script.turn_on
         data_template:
           entity_id: script.radio
+  radio_10:
+    alias: play radio 10 from Alexa
+    sequence:
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.radio_station
+          option: "Radio 10"
+      - service: script.turn_on
+        data_template:
+          entity_id: script.radio          
   fourty:
     alias: play 40up from Alexa
     sequence:

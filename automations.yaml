@@ -50,7 +50,7 @@
   trigger:
     platform: sun
     event: sunset
-    offset: '00:35:00'
+    offset: '00:20:00'
   action:
     service: scene.turn_on
     entity_id: scene.closed

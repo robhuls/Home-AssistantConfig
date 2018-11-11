@@ -2,7 +2,7 @@
     sequence:
       - service: light.turn_on
         data: 
-          entity_id: light.bedroom
+          entity_id: light.bedroomstrip
           brightness: 255
           transition: 180
       - service: media_player.volume_set

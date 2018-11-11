@@ -13,7 +13,7 @@
         light.hall:
           state: off
         climate.daikin:
-          operation_mode: 'Off'
+          operation_mode: 'off'
         light.bedroomstrip:
           state: on
         media_player.chromecast_audio:
@@ -30,14 +30,14 @@
           state: off
         light.hall:
           state: off
-        light.bedroom:
+        light.bedroomstrip:
           state: off
         media_player.nad7050:
           state: off
         media_player.chromecast_audio:
           state: off
         climate.daikin:
-          operation_mode: 'Off'
+          operation_mode: 'off'
   - name: breakfast
     entities:
         group.hue_livingroom:
@@ -62,7 +62,7 @@
           state: open
   - name: tv
     entities:
-        media_player.chromecast_tv:
+        media_player.lg_webos_smart_tv:
           state: on
         media_player.nad7050:
           source: 'Optical 1'
@@ -82,10 +82,6 @@
           state: off
         light.bedroom:
           state: off
-        media_player.chromecast_tv:
-          state: on
-        media_player.nad7050:
-          source: 'Optical 1'
   - name: normal
     entities:
         group.hue_livingroom:
@@ -114,7 +110,7 @@
         state: on
         color_temp: 400
         brightness_pct: 100
-        transition: 300
+        transition: 300        
 # Covers do not work in combination with groups
   - name: closed
     entities:

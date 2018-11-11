@@ -17,8 +17,6 @@ influxdb:
       - sensor.fritz_netmonitor
       - sensor.power_consumption
       - sensor.power_production
-      - sensor.power_production_total
-      - sensor.power_consumption_total
       - sensor.received_eth0
       - sensor.sent_eth0
       - sensor.livingroom_temperature
@@ -97,33 +95,6 @@ sensor:
         arg: eth0
       - type: network_out
         arg: eth0
-  - platform: template
-    sensors:
-      download:
-        value_template: "{{ '%.1f'|format(states.sensor.fritz_netmonitor.attributes.bytes_received/1024/1024/1024) }}"
-        unit_of_measurement: 'Gb'
-        icon_template: mdi:download
-  - platform: template
-    sensors:
-      upload:
-        value_template: "{{ '%.1f'|format(states.sensor.fritz_netmonitor.attributes.bytes_sent/1024/1024/1024) }}"
-        unit_of_measurement: 'Gb'
-        icon_template: mdi:upload
-  # Determine total power production and consumption
-  - platform: template
-    sensors:
-      power_production_total:
-        value_template: "{{'%.0f'|format(float(states.sensor.power_production_low.state) + float(states.sensor.power_production_normal.state))}}"
-        unit_of_measurement: 'kWh'
-        icon_template: mdi:flash
-        friendly_name: "Power Production"
-  - platform: template
-    sensors:
-      power_consumption_total:
-        value_template: "{{'%.0f'|format(float(states.sensor.power_consumption_low.state) + float(states.sensor.power_consumption_normal.state))}}"
-        unit_of_measurement: 'kWh'
-        icon_template: mdi:flash
-        friendly_name: "Power Consumption"
   # Parse sensor values from the philips Hue platform
   - platform: rest
     resource: http://192.168.10.22/api/9BMePcyRlGQlhW8UmJ5Qxa6-swybrhibFo39tT-D/sensors/2
@@ -231,11 +202,18 @@ media_player:
     client_id: !secret spotify_id
     client_secret: !secret spotify_secret
   - platform: webostv
-    host: 192.168.10.45
+    host: 192.168.10.47
     turn_on_action:
       service: wake_on_lan.send_magic_packet
       data:
-        mac: "20-3D-BD-99-D7-AE"
+        mac: "78-5D-C8-F0-32-4F"
+    customize:
+      sources:
+        - youtube
+        - netflix
+        - NPO Start
+        - HDMI 1
+        - HDMI 2
 
 # Daikin heat pump
 climate:

@@ -188,7 +188,10 @@ switch:
 
 # Device trackers
 device_tracker:
-  - platform: fritz
+  # - platform: fritz
+  - platform: icloud
+    username: !secret icloud_name
+    password: !secret icloud_pwd
 
 # Wake-on-lan for LG TV
 wake_on_lan: # enables `wake_on_lan` domain

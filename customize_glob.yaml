@@ -13,3 +13,8 @@
       hidden: true
     sensor.power_production_*:
       hidden: true
+    # Hide the fritzbox stuff
+    sensor.fritzbox_7490*:
+      hidden: true
+    sensor.internetgatewaydevicev2*:
+      hidden: true

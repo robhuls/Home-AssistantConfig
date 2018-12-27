@@ -15,27 +15,6 @@ frontend:
 lovelace:
   mode: yaml
 
-# influxdb for visuals on MacBook
-# influxdb:
-#   host: hassio.local
-#   port: 8086
-#   database: homeassistant
-#   username: robhuls
-#   password: !secret influxdb_pwd
-#   max_retries: 3
-#   default_measurement: state
-#   include:
-#     entities:
-#       - sensor.fritz_netmonitor
-#       - sensor.power_consumption
-#       - sensor.power_production
-#       - sensor.received_eth0
-#       - sensor.sent_eth0
-#       - sensor.buienlivingroom_temperature
-#       - sensor.outside_temperature
-#       - sensor.hall_temperature
-#       - climate.woonkamer
-
 # Alexa
 alexa:
 
@@ -45,9 +24,13 @@ hassio:
 # Enable configuration UI
 config:
 
-# # Configure logging
-# logger:
-#   default: debug
+# Enable history
+history:
+  include:
+    entities:
+      - sensor.livingroom_temperature
+      - sensor.power_consumption
+      - sensor.power_production
 
 # Configure the web interface
 http:
@@ -105,7 +88,23 @@ sensor:
       0a520701310e00b43b0159:
         name: Livingroom
   - platform: fritzbox_netmonitor
-  # Parse sensor values from the philips Hue platform
+# How long did you watch TV today
+  - platform: history_stats
+    name: TV ON today
+    entity_id: media_player.lg_webos_smart_tv
+    state: 'playing'
+    type: time
+    start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    end: '{{ now() }}'
+# How long did the Daikin heat
+  - platform: history_stats
+    name: Daikin ON today
+    entity_id: climate.woonkamer
+    state: 'heat'
+    type: time
+    start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    end: '{{ now() }}'
+# Parse sensor values from the philips Hue platform
   - platform: rest
     resource: http://192.168.10.22/api/9BMePcyRlGQlhW8UmJ5Qxa6-swybrhibFo39tT-D/sensors/2
     value_template: '{{ value_json.state.temperature | float / 100 }}'
@@ -136,7 +135,7 @@ sensor:
     value_template: '{{ value_json.state.lightlevel }}'
     unit_of_measurement: Lux
     name: 'Restroom light level'
-  # Create an alarm clock
+# Create an alarm clock
   - platform: time_date
     display_options:
       - 'time'

@@ -2,13 +2,17 @@ title: Home Assistant
 views:
   - title: Control
     cards:
-      - type: thermostat
-        entity: climate.woonkamer
       - type: entities
         entities:
           - scene.normal
           - scene.dark
           - scene.away
+      - type: thermostat
+        entity: climate.woonkamer
+      - type: entities
+        entities:
+          - scene.open
+          - scene.closed
   - title: Media
     cards:
       - type: entities
@@ -57,6 +61,19 @@ views:
             name: Restroom
       - type: weather-forecast
         entity: weather.br_unknown_station
+      - type: sensor
+        entity: sensor.tv_on_today
+      - type: sensor
+        entity: sensor.power_consumption
+        graph: line
+        detail: 2
+      - type: sensor
+        entity: sensor.power_production
+        graph: line
+        detail: 2
+      - type: sensor
+        entity: sensor.livingroom_temperature
+        graph: line
   - title: Clock
     cards:
       - type: entities

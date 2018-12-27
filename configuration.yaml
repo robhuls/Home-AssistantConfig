@@ -66,10 +66,6 @@ panel_iframe:
     title: Configurator
     icon: mdi:wrench
     url: https://hassio.local:3218
-#   influxdb:
-#     title: InfluxDB
-#     icon: mdi:chart-areaspline
-#     url: https://hassio.local:8888
 
 # Track the sun
 sun:
@@ -104,11 +100,6 @@ sensor:
   - platform: dsmr
     port: /dev/ttyUSB0
     dsmr_version: 4
-  - platform: buienradar
-    name: Outside
-    monitored_conditions:
-      - temperature
-      - windspeed
   - platform: rfxtrx
     devices:
       0a520701310e00b43b0159:
@@ -262,10 +253,6 @@ intent_script:
     speech:
       type: plain
       text: done
-  TemperatureIntent:
-    speech:
-      type: plain
-      text: "It is {{states('sensor.outside_temperature')}} degrees"
   RadioIntent:
     action:
       service: script.turn_on

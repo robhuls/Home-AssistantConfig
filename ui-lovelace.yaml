@@ -28,7 +28,6 @@ views:
           - scene.movie
           - scene.dark
           - scene.normal
-        # group.radio,group.alarm_clock,scene.movie_light,scene.no_light,scene.normal_light,
   - title: Lights
     cards:
       - type: light
@@ -46,8 +45,6 @@ views:
     cards:
       - type: glance
         entities:
-          - entity: sensor.outside_temperature
-            name: Outside
           - entity: sensor.livingroom_temperature
             name: Living
           - entity: sensor.hall_temperature
@@ -59,4 +56,4 @@ views:
           - entity: sensor.restroom_temperature
             name: Restroom
       - type: weather-forecast
-        entity: weather.buienradar
+        entity: weather.br_unknown_station

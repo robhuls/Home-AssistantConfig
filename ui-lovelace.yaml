@@ -1,0 +1,62 @@
+title: Home Assistant
+views:
+  - title: Control
+    cards:
+      - type: thermostat
+        entity: climate.woonkamer
+      - type: entities
+        entities:
+          - scene.normal
+          - scene.dark
+          - scene.away
+  - title: Media
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - input_select.radio_station
+          - script.radio
+      - type: media-control
+        entity: media_player.lg_webos_smart_tv
+      - type: media-control
+        entity: media_player.nad7050
+      - type: media-control
+        entity: media_player.chromecast_audio
+      - type: entities
+        entities:
+          - scene.tv
+          - scene.movie
+          - scene.dark
+          - scene.normal
+        # group.radio,group.alarm_clock,scene.movie_light,scene.no_light,scene.normal_light,
+  - title: Lights
+    cards:
+      - type: light
+        entity: light.livingroom_back
+      - type: light
+        entity: light.livingroom_left
+      - type: light
+        entity: light.livingroom_right
+      - type: entities
+        entities:
+          - switch.bookcase_light
+          - switch.kitchen_light_left
+          - switch.kitchen_light_right
+  - title: Data
+    cards:
+      - type: glance
+        entities:
+          - entity: sensor.outside_temperature
+            name: Outside
+          - entity: sensor.livingroom_temperature
+            name: Living
+          - entity: sensor.hall_temperature
+            name: Hall
+          - entity: sensor.qubino_zmnhcdx_flush_shutter_temperature
+            name: Upstairs
+          - entity: sensor.kitchen_temperature
+            name: Kitchen
+          - entity: sensor.restroom_temperature
+            name: Restroom
+      - type: weather-forecast
+        entity: weather.buienradar

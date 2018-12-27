@@ -1,11 +1,3 @@
-    sensor.rolluik_zij_exporting:
-      hidden: true
-    sensor.rolluik_zij_interval:
-      hidden: true
-    sensor.rolluik_zij_interval_2:
-      hidden: true
-    sensor.rolluik_zij_previous_reading_2:
-      hidden: true
     # Hide artificial sensors we need for the alarm clock
     sensor.alarm_clock_hour:
       hidden: true

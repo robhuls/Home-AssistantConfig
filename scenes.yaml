@@ -12,7 +12,7 @@
           state: off
         light.hall:
           state: off
-        climate.daikin:
+        climate.woonkamer:
           operation_mode: 'off'
         light.bedroomstrip:
           state: on
@@ -36,30 +36,8 @@
           state: off
         media_player.chromecast_audio:
           state: off
-        climate.daikin:
+        climate.woonkamer:
           operation_mode: 'off'
-  - name: breakfast
-    entities:
-        group.hue_livingroom:
-          state: on
-          color_temp: 400
-          brightness_pct: 100
-        switch.bookcase_light:
-          state: on
-        group.lights_kitchen:
-          state: on
-        climate.daikin:
-          operation_mode: 'Heat'
-        cover.rolluik_keuken_switch:
-          state: open
-        cover.rolluik_links_switch:
-          state: open
-        cover.rolluik_rechts_switch:
-          state: open
-        cover.rolluik_voor_switch:
-          state: open
-        cover.rolluik_zij_switch:
-          state: open
   - name: tv
     entities:
         media_player.lg_webos_smart_tv:
@@ -114,27 +92,27 @@
 # Covers do not work in combination with groups
   - name: closed
     entities:
-        cover.rolluik_keuken_switch:
+        cover.qubino_zmnhcdx_flush_shutter_switch:
           state: closed
-        cover.rolluik_links_switch:
+        cover.qubino_zmnhcdx_flush_shutter_switch_2:
           state: closed
-        cover.rolluik_rechts_switch:
+        cover.qubino_zmnhcdx_flush_shutter_switch_3:
           state: closed
-        cover.rolluik_voor_switch:
+        cover.qubino_zmnhcdx_flush_shutter_switch_4:
           state: closed
-        cover.rolluik_zij_switch:
+        cover.qubino_zmnhcdx_flush_shutter_switch_5:
           state: closed
   - name: open
     entities:
-        cover.rolluik_keuken_switch:
+        cover.qubino_zmnhcdx_flush_shutter_switch:
           state: open
-        cover.rolluik_links_switch:
+        cover.qubino_zmnhcdx_flush_shutter_switch_2:
           state: open
-        cover.rolluik_rechts_switch:
+        cover.qubino_zmnhcdx_flush_shutter_switch_3:
           state: open
-        cover.rolluik_voor_switch:
+        cover.qubino_zmnhcdx_flush_shutter_switch_4:
           state: open
-        cover.rolluik_zij_switch:
+        cover.qubino_zmnhcdx_flush_shutter_switch_5:
           state: open
   - name: bedroom_off
     entities:
@@ -142,9 +120,9 @@
           state: off
   - name: heater
     entities:
-        climate.daikin:
+        climate.woonkamer:
           operation_mode: 'Heat'
   - name: heater_off
     entities:
-        climate.daikin:
+        climate.woonkamer:
           operation_mode: 'Off'

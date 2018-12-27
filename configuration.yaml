@@ -7,22 +7,23 @@ homeassistant:
   time_zone: Europe/Amsterdam
   customize: !include customize.yaml
   customize_glob: !include customize_glob.yaml
+
 # Enable the frontend
 frontend:
 
-# influxdb for visuals on MacBook
-influxdb:
-  include:
-    entities:
-      - sensor.fritz_netmonitor
-      - sensor.power_consumption
-      - sensor.power_production
-      - sensor.received_eth0
-      - sensor.sent_eth0
-      - sensor.livingroom_temperature
-      - sensor.outside_temperature
-      - sensor.hall_temperature
-      - climate.daikin
+# # influxdb for visuals on MacBook
+# influxdb:
+#   include:
+#     entities:
+#       - sensor.fritz_netmonitor
+#       - sensor.power_consumption
+#       - sensor.power_production
+#       - sensor.received_eth0
+#       - sensor.sent_eth0
+#       - sensor.livingroom_temperature
+#       - sensor.outside_temperature
+#       - sensor.hall_temperature
+#       - climate.daikin
 
 # Alexa
 alexa:
@@ -33,9 +34,9 @@ hassio:
 # Enable configuration UI
 config:
 
-# Configure logging
-logger:
-  default: debug
+# # Configure logging
+# logger:
+#   default: debug
 
 # Configure the web interface
 http:
@@ -48,6 +49,13 @@ http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 
+# Add the configuration editor
+panel_iframe:
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: http://hassio.local:3218
+
 # Track the sun
 sun:
 
@@ -55,6 +63,7 @@ sun:
 discovery:
   ignore:
     - daikin
+    - apple_tv
 
 # Philips Hue lights
 hue:
@@ -71,30 +80,22 @@ ios:
 # RFXCOM
 rfxtrx:
   device: /dev/ttyUSB1
-  # device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1XSUJYH-if00-port0
 
 # Smart meter, buienradar, Cresta, Fritz, Certificate, Hue sensors
 sensor:
   - platform: dsmr
-    port: /dev/ttyUSB2
-    # port: /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A703CYCN-if00-port0
+    port: /dev/ttyUSB0
     dsmr_version: 4
-  # - platform: buienradar
-  #   name: Outside
-  #   monitored_conditions:
-  #     - temperature
-  #     - windspeed
+  - platform: buienradar
+    name: Outside
+    monitored_conditions:
+      - temperature
+      - windspeed
   - platform: rfxtrx
     devices:
       0a520701310e00b43b0159:
         name: Livingroom
   - platform: fritzbox_netmonitor
-  - platform: systemmonitor
-    resources:
-      - type: network_in
-        arg: eth0
-      - type: network_out
-        arg: eth0
   # Parse sensor values from the philips Hue platform
   - platform: rest
     resource: http://192.168.10.22/api/9BMePcyRlGQlhW8UmJ5Qxa6-swybrhibFo39tT-D/sensors/2
@@ -183,20 +184,18 @@ switch:
         name: Kitchen Switch Right
         fire_event: True
 
-# Full off (saves 15W) for NAD, custom_component
-# nad_off:
-
 # Device trackers
 device_tracker:
   # - platform: fritz
   - platform: icloud
     username: !secret icloud_name
     password: !secret icloud_pwd
+    gps_accuracy_threshold: 20
 
 # Wake-on-lan for LG TV
 wake_on_lan: # enables `wake_on_lan` domain
 
-# NAD7050 and spotify
+# NAD7050, spotify en LG
 media_player:
   - platform: nadtcp
     name: NAD7050

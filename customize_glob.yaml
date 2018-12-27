@@ -1,11 +1,17 @@
-    sensor.rolluik_*_energy:
+    # Hide all the Qubino nonsense
+    sensor.qubino_zmnhcdx_flush_shutter_energy*:
       hidden: true
-    sensor.rolluik_*_power:
+    sensor.qubino_zmnhcdx_flush_shutter_power*:
       hidden: true
-    sensor.rolluik_*_previous_reading:
+    sensor.qubino_zmnhcdx_flush_shutter_previous_reading*:
       hidden: true
-    sensor.voltage_*:
+    sensor.qubino_zmnhcdx_flush_shutter_interval*:
       hidden: true
+    sensor.qubino_zmnhcdx_flush_shutter_exporting*:
+        hidden: true
+    cover.qubino_zmnhcdx_flush_shutter_switch*:
+      hidden: true
+    # Hide all the device tracker nonsense
     device_tracker.*:
       hidden: true
     # Hide the less interesting power sensors
@@ -13,8 +19,11 @@
       hidden: true
     sensor.power_production_*:
       hidden: true
-    # Hide the fritzbox stuff
-    sensor.fritzbox_7490*:
+    sensor.voltage_*:
       hidden: true
-    sensor.internetgatewaydevicev2*:
+    sensor.long_power_failure_count:
+      hidden: true
+    sensor.*as_consumption:
+      hidden: true
+    sensor.power_tariff:
       hidden: true

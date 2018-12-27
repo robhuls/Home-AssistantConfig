@@ -8,12 +8,12 @@
       - scene.closed
       - scene.open
       - scene.movie
-      - cover.rolluik_keuken_level
-      - cover.rolluik_links_level
-      - cover.rolluik_rechts_level
-      - cover.rolluik_voor_level
-      - cover.rolluik_zij_level
-      - climate.daikin
+      - cover.qubino_zmnhcdx_flush_shutter_level
+      - cover.qubino_zmnhcdx_flush_shutter_level_2
+      - cover.qubino_zmnhcdx_flush_shutter_level_3
+      - cover.qubino_zmnhcdx_flush_shutter_level_4
+      - cover.qubino_zmnhcdx_flush_shutter_level_5
+      - climate.woonkamer
   media:
     name: Media
     view: yes
@@ -40,11 +40,11 @@
   rolluiken:
     name: Rolluiken
     entities:
-      - cover.rolluik_keuken_switch
-      - cover.rolluik_links_switch
-      - cover.rolluik_rechts_switch
-      - cover.rolluik_voor_switch
-      - cover.rolluik_zij_switch
+      - cover.qubino_zmnhcdx_flush_shutter_switch
+      - cover.qubino_zmnhcdx_flush_shutter_switch_2
+      - cover.qubino_zmnhcdx_flush_shutter_switch_3
+      - cover.qubino_zmnhcdx_flush_shutter_switch_4
+      - cover.qubino_zmnhcdx_flush_shutter_switch_5
   energy:
     name: Energy
     entities:
@@ -70,7 +70,7 @@
       - sensor.outside_temperature
       - sensor.livingroom_temperature
       - sensor.hall_temperature
-      - sensor.rolluik_zij_temperature
+      - sensor.qubino_zmnhcdx_flush_shutter_temperature
       - sensor.kitchen_temperature
       - sensor.restroom_temperature
   # Data usage inside data tab

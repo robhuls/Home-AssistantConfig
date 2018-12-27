@@ -11,8 +11,19 @@ homeassistant:
 # Enable the frontend
 frontend:
 
-# # influxdb for visuals on MacBook
+# Configure Lovelace using YAML
+lovelace:
+  mode: yaml
+
+# influxdb for visuals on MacBook
 # influxdb:
+#   host: hassio.local
+#   port: 8086
+#   database: homeassistant
+#   username: robhuls
+#   password: !secret influxdb_pwd
+#   max_retries: 3
+#   default_measurement: state
 #   include:
 #     entities:
 #       - sensor.fritz_netmonitor
@@ -20,10 +31,10 @@ frontend:
 #       - sensor.power_production
 #       - sensor.received_eth0
 #       - sensor.sent_eth0
-#       - sensor.livingroom_temperature
+#       - sensor.buienlivingroom_temperature
 #       - sensor.outside_temperature
 #       - sensor.hall_temperature
-#       - climate.daikin
+#       - climate.woonkamer
 
 # Alexa
 alexa:
@@ -49,12 +60,16 @@ http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 
-# Add the configuration editor
+# Add the configuration editor and influxDB panels
 panel_iframe:
   configurator:
     title: Configurator
     icon: mdi:wrench
-    url: http://hassio.local:3218
+    url: https://hassio.local:3218
+#   influxdb:
+#     title: InfluxDB
+#     icon: mdi:chart-areaspline
+#     url: https://hassio.local:8888
 
 # Track the sun
 sun:
@@ -80,6 +95,9 @@ ios:
 # RFXCOM
 rfxtrx:
   device: /dev/ttyUSB1
+
+weather:
+  - platform: buienradar
 
 # Smart meter, buienradar, Cresta, Fritz, Certificate, Hue sensors
 sensor:

@@ -57,3 +57,12 @@ views:
             name: Restroom
       - type: weather-forecast
         entity: weather.br_unknown_station
+  - title: Clock
+    cards:
+      - type: entities
+        entities:
+          - sensor.alarm_clock_time
+          - input_number.alarm_clock_hour
+          - input_number.alarm_clock_minute
+          - input_boolean.alarm_clock_radio
+          - input_boolean.alarm_clock_status

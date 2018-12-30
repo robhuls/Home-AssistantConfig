@@ -217,8 +217,10 @@ switch:
         fire_event: True
 
 # Device trackers
-# device_tracker:
-#   # - platform: fritz
+device_tracker:
+  - platform: fritz
+    username: admin
+    password: !secret fritz_pass
 #   - platform: icloud
 #     username: !secret icloud_name
 #     password: !secret icloud_pwd

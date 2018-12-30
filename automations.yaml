@@ -105,23 +105,23 @@
     service: scene.turn_on
     entity_id: scene.fade_in_hue
 
-# - alias: lights on when I get home
-#   trigger:
-#     platform: state
-#     entity_id: device_tracker.iphone
-#   condition:
-#     condition: and
-#     conditions:
-#       - condition: sun
-#         after: sunset
-#       - condition: state
-#         entity_id: device_tracker.iphone
-#         state: home  
-#   action:
-#     - service: scene.turn_on
-#       entity_id: scene.normal
-#     - service: light.turn_on
-#       entity_id: light.hall
+- alias: lights on when I get home
+  trigger:
+    platform: state
+    entity_id: device_tracker.iphone
+  condition:
+    condition: and
+    conditions:
+      - condition: sun
+        after: sunset
+      - condition: state
+        entity_id: device_tracker.iphone
+        state: home  
+  action:
+    - service: scene.turn_on
+      entity_id: scene.normal
+    - service: light.turn_on
+      entity_id: light.hall
 
 - alias: turn on heating when it is too cold
   trigger:

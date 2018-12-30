@@ -64,6 +64,8 @@ views:
       - type: sensor
         entity: sensor.tv_on_today
       - type: sensor
+        entity: sensor.daikin_on_today
+      - type: sensor
         entity: sensor.power_consumption
         graph: line
         detail: 2
@@ -74,6 +76,17 @@ views:
       - type: sensor
         entity: sensor.livingroom_temperature
         graph: line
+      - type: sensor
+        entity: sensor.download
+        graph: line
+        hours_to_show: 1
+        detail: 2
+      - type: sensor
+        entity: sensor.upload
+        graph: line
+        hours_to_show: 1
+        detail: 2
+
   - title: Clock
     cards:
       - type: entities

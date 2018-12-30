@@ -25,12 +25,22 @@ hassio:
 config:
 
 # Enable history
+recorder:
+  include:
+    entities:
+      - sensor.livingroom_temperature
+      - sensor.power_consumption
+      - sensor.power_production
+      - sensor.download
+      - sensor.upload
 history:
   include:
     entities:
       - sensor.livingroom_temperature
       - sensor.power_consumption
       - sensor.power_production
+      - sensor.download
+      - sensor.upload
 
 # Configure the web interface
 http:
@@ -135,6 +145,16 @@ sensor:
     value_template: '{{ value_json.state.lightlevel }}'
     unit_of_measurement: Lux
     name: 'Restroom light level'
+# Retrieve network speed
+  - platform: template
+    sensors:
+      upload:
+        unit_of_measurement: 'Mbps'
+        value_template: "{{ '%.2f'|format(state_attr('sensor.fritz_netmonitor', 'transmission_rate_up')*8/1024/1024) }}"
+      download:
+        unit_of_measurement: 'Mbps'
+        value_template: "{{ '%.2f'|format(state_attr('sensor.fritz_netmonitor', 'transmission_rate_down')*8/1024/1024) }}"
+
 # Create an alarm clock
   - platform: time_date
     display_options:
@@ -201,7 +221,7 @@ device_tracker:
     gps_accuracy_threshold: 20
 
 # Wake-on-lan for LG TV
-wake_on_lan: # enables `wake_on_lan` domain
+wake_on_lan:
 
 # NAD7050, spotify en LG
 media_player:

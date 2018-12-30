@@ -24,6 +24,10 @@ hassio:
 # Enable configuration UI
 config:
 
+# Enable debug info
+logger:
+  default: info
+
 # Enable history
 recorder:
   include:
@@ -213,12 +217,12 @@ switch:
         fire_event: True
 
 # Device trackers
-device_tracker:
-  # - platform: fritz
-  - platform: icloud
-    username: !secret icloud_name
-    password: !secret icloud_pwd
-    gps_accuracy_threshold: 20
+# device_tracker:
+#   # - platform: fritz
+#   - platform: icloud
+#     username: !secret icloud_name
+#     password: !secret icloud_pwd
+#     gps_accuracy_threshold: 20
 
 # Wake-on-lan for LG TV
 wake_on_lan:

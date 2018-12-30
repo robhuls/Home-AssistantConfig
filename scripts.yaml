@@ -1,3 +1,54 @@
+  netflix:
+    sequence:
+      - service: media_player.turn_on
+        data:
+          entity_id: media_player.lg_webos_smart_tv
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.lg_webos_smart_tv
+          source: 'Netflix'
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.nad7050
+          volume_level: 0.80
+      - service: media_player.select_source
+        data_template: 
+          entity_id: media_player.nad7050
+          source: Optical 1
+  youtube:
+    sequence:
+      - service: media_player.turn_on
+        data:
+          entity_id: media_player.lg_webos_smart_tv
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.lg_webos_smart_tv
+          source: 'YouTube'
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.nad7050
+          volume_level: 0.80
+      - service: media_player.select_source
+        data_template: 
+          entity_id: media_player.nad7050
+          source: Optical 1
+  npo:
+    sequence:
+      - service: media_player.turn_on
+        data:
+          entity_id: media_player.lg_webos_smart_tv
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.lg_webos_smart_tv
+          source: 'NPO Start'
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.nad7050
+          volume_level: 0.80
+      - service: media_player.select_source
+        data_template: 
+          entity_id: media_player.nad7050
+          source: Optical 1
   wake_up:
     sequence:
       - service: light.turn_on

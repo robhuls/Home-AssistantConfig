@@ -83,7 +83,7 @@ zwave:
   usb_path: /dev/ttyACM0
 
 # iOS component
-ios:
+# ios:
 
 # RFXCOM
 rfxtrx:

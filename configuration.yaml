@@ -332,6 +332,7 @@ input_select:
       - BNR Nieuwsradio
       - 40up Radio
       - Sublime FM
+      - WDR 4
     icon: mdi:radio
 
 group: !include groups.yaml

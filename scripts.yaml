@@ -82,6 +82,7 @@
             {% elif is_state("input_select.radio_station", "BNR Nieuwsradio") %} http://icecast-bnr.cdp.triple-it.nl/bnr_mp3_96_03
             {% elif is_state("input_select.radio_station", "40up Radio") %} http://40upstream.live-streams.nl:80/40up1
             {% elif is_state("input_select.radio_station", "Sublime FM") %} http://stream.sublimefm.nl/SublimeFM_mp3
+            {% elif is_state("input_select.radio_station", "WDR 4") %} http://wdr-wdr4-live.icecast.wdr.de/wdr/wdr4/live/mp3/128/stream.mp3
             {% endif %}
           media_content_type: 'audio/mp4'
   radio_1:

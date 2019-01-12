@@ -110,14 +110,6 @@ sensor:
     type: time
     start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
     end: '{{ now() }}'
-# How long did the Daikin heat
-  - platform: history_stats
-    name: Daikin ON today
-    entity_id: climate.woonkamer
-    state: 'heat'
-    type: time
-    start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
-    end: '{{ now() }}'
 # Parse sensor values from the philips Hue platform
   - platform: rest
     resource: http://192.168.10.22/api/9BMePcyRlGQlhW8UmJ5Qxa6-swybrhibFo39tT-D/sensors/2
@@ -252,13 +244,16 @@ media_player:
         - HDMI 2
 
 # Daikin heat pump
-climate:
-  - platform: daikin
-    name: daikin
-    host: 192.168.10.26
-    monitored_conditions:
-      - inside_temperature
-      - outside_temperature
+daikin:
+  hosts:
+    - 192.168.10.26
+# climate:
+#   - platform: daikin
+#     name: daikin
+#     host: 192.168.10.26
+#     monitored_conditions:
+#       - inside_temperature
+#       - outside_temperature
 
 # Alexa intents
 intent_script:

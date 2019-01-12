@@ -131,11 +131,11 @@
   action:
     - service: climate.set_operation_mode
       data:
-        entity_id: climate.daikin
-        operation_mode: 'Heat'
+        entity_id: climate.woonkamer
+        operation_mode: 'heat'
     - service: climate.set_temperature
       data:  
-        entity_id: climate.daikin
+        entity_id: climate.woonkamer
         temperature: 18
 
 - alias: Hue light on gradually with alarm

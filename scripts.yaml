@@ -3,10 +3,9 @@
       - service: media_player.turn_on
         data:
           entity_id: media_player.lg_webos_smart_tv
-      - service: media_player.select_source
+      - service: media_player.turn_off
         data:
-          entity_id: media_player.lg_webos_smart_tv
-          source: 'Netflix'
+          entity_id: media_player.chromecast_audio
       - service: media_player.volume_set
         data:
           entity_id: media_player.nad7050
@@ -15,15 +14,19 @@
         data_template: 
           entity_id: media_player.nad7050
           source: Optical 1
+      - delay: '00:00:10'
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.lg_webos_smart_tv
+          source: 'Netflix'
   youtube:
     sequence:
       - service: media_player.turn_on
         data:
           entity_id: media_player.lg_webos_smart_tv
-      - service: media_player.select_source
+      - service: media_player.turn_off
         data:
-          entity_id: media_player.lg_webos_smart_tv
-          source: 'YouTube'
+          entity_id: media_player.chromecast_audio
       - service: media_player.volume_set
         data:
           entity_id: media_player.nad7050
@@ -32,15 +35,19 @@
         data_template: 
           entity_id: media_player.nad7050
           source: Optical 1
+      - delay: '00:00:10'
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.lg_webos_smart_tv
+          source: 'YouTube'
   npo:
     sequence:
       - service: media_player.turn_on
         data:
           entity_id: media_player.lg_webos_smart_tv
-      - service: media_player.select_source
+      - service: media_player.turn_off
         data:
-          entity_id: media_player.lg_webos_smart_tv
-          source: 'NPO Start'
+          entity_id: media_player.chromecast_audio
       - service: media_player.volume_set
         data:
           entity_id: media_player.nad7050
@@ -49,6 +56,12 @@
         data_template: 
           entity_id: media_player.nad7050
           source: Optical 1
+      - delay: '00:00:10'
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.lg_webos_smart_tv
+          source: 'NPO Start'
+
   wake_up:
     sequence:
       - service: light.turn_on

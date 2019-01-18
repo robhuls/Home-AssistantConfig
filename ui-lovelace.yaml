@@ -62,10 +62,6 @@ views:
       - type: weather-forecast
         entity: weather.br_unknown_station
       - type: sensor
-        entity: sensor.tv_on_today
-      - type: sensor
-        entity: sensor.daikin_on_today
-      - type: sensor
         entity: sensor.power_consumption
         graph: line
         detail: 2

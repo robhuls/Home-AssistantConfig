@@ -68,10 +68,10 @@ panel_iframe:
 sun:
 
 # discover components
-discovery:
-  ignore:
-    - daikin
-    - apple_tv
+# discovery:
+#   ignore:
+#     - daikin
+#     - apple_tv
 
 # Philips Hue lights
 hue:

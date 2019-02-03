@@ -57,12 +57,19 @@ http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 
-# Add the configuration editor and influxDB panels
+# Add the configuration editor and pi-hole UI element
 panel_iframe:
   configurator:
     title: Configurator
     icon: mdi:wrench
     url: https://hassio.local:3218
+#   pihole:
+#     title: Pi-hole
+#     icon: mdi:block-helper
+#     url: http://hassio.local:4865
+
+tradfri:
+  host: 192.168.10.49
 
 # Track the sun
 sun:
@@ -89,8 +96,8 @@ zwave:
 rfxtrx:
   device: /dev/ttyUSB1
 
-weather:
-  - platform: buienradar
+# weather:
+#   - platform: buienradar
 
 # Smart meter, buienradar, Cresta, Fritz, Certificate, Hue sensors
 sensor:
@@ -230,11 +237,11 @@ media_player:
     client_id: !secret spotify_id
     client_secret: !secret spotify_secret
   - platform: webostv
-    host: 192.168.10.47
+    host: 192.168.10.45
     turn_on_action:
       service: wake_on_lan.send_magic_packet
       data:
-        mac: "78-5D-C8-F0-32-4F"
+        mac: "20-3D-BD-99-D7-AE"
     customize:
       sources:
         - youtube

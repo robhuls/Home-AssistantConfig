@@ -27,6 +27,8 @@ config:
 # Enable debug info
 logger:
   default: info
+  logs:
+    homeassistant.components.device_tracker.fritz: warning
 
 # Enable history
 recorder:

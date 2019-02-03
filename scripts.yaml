@@ -27,19 +27,32 @@
       - service: media_player.turn_off
         data:
           entity_id: media_player.chromecast_audio
-      - service: media_player.volume_set
+      - service: switch.turn_on
         data:
-          entity_id: media_player.nad7050
-          volume_level: 0.80
-      - service: media_player.select_source
-        data_template: 
-          entity_id: media_player.nad7050
-          source: Optical 1
+          entity_id: switch.tradfri_outlet
       - delay: '00:00:10'
       - service: media_player.select_source
         data:
           entity_id: media_player.lg_webos_smart_tv
           source: 'YouTube'
+      - service: media_player.select_source
+        data_template: 
+          entity_id: media_player.nad7050
+          source: Optical 1
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.nad7050
+          volume_level: 0.80
+      - delay: '00:01:00'
+      - service: media_player.select_source
+        data_template: 
+          entity_id: media_player.nad7050
+          source: Optical 1
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.nad7050
+          volume_level: 0.80
+
   npo:
     sequence:
       - service: media_player.turn_on
@@ -64,11 +77,15 @@
 
   wake_up:
     sequence:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.tradfri_outlet
       - service: light.turn_on
         data: 
           entity_id: light.bedroomstrip
           brightness: 255
           transition: 180
+      - delay: '00:01:30'
       - service: media_player.volume_set
         data:
           entity_id: media_player.nad7050

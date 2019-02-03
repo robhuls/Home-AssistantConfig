@@ -32,6 +32,8 @@ views:
           - scene.movie
           - scene.dark
           - scene.normal
+          - entity: switch.tradfri_outlet
+            name: stereo power
   - title: Lights
     cards:
       - type: light
@@ -40,6 +42,8 @@ views:
         entity: light.livingroom_left
       - type: light
         entity: light.livingroom_right
+      - type: light
+        entity: light.livingroom_corner
       - type: entities
         entities:
           - switch.bookcase_light
@@ -59,8 +63,6 @@ views:
             name: Kitchen
           - entity: sensor.restroom_temperature
             name: Restroom
-      - type: weather-forecast
-        entity: weather.br_unknown_station
       - type: sensor
         entity: sensor.power_consumption
         graph: line

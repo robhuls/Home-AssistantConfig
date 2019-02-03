@@ -18,6 +18,9 @@
           state: on
         media_player.chromecast_audio:
           state: off
+        switch.tradfri_outlet:
+          state: off
+
   - name: away
     entities:
         group.hue_livingroom:
@@ -38,6 +41,9 @@
           state: off
         climate.woonkamer:
           operation_mode: 'off'
+        switch.tradfri_outlet:
+          state: off
+
   - name: tv
     entities:
         media_player.lg_webos_smart_tv:

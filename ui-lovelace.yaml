@@ -49,6 +49,8 @@ views:
           - switch.bookcase_light
           - switch.kitchen_light_left
           - switch.kitchen_light_right
+      - type: light
+        entity: light.leeslamp
   - title: Data
     cards:
       - type: glance

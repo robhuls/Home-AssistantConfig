@@ -65,10 +65,6 @@ panel_iframe:
     title: Configurator
     icon: mdi:wrench
     url: https://hassio.local:3218
-#   pihole:
-#     title: Pi-hole
-#     icon: mdi:block-helper
-#     url: http://hassio.local:4865
 
 tradfri:
   host: 192.168.10.49
@@ -91,15 +87,9 @@ hue:
 zwave:
   usb_path: /dev/ttyACM0
 
-# iOS component
-# ios:
-
 # RFXCOM
 rfxtrx:
   device: /dev/ttyUSB1
-
-# weather:
-#   - platform: buienradar
 
 # Smart meter, buienradar, Cresta, Fritz, Certificate, Hue sensors
 sensor:

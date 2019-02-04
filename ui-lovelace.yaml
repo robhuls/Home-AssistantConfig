@@ -50,7 +50,9 @@ views:
           - switch.kitchen_light_left
           - switch.kitchen_light_right
       - type: light
-        entity: light.leeslamp
+        entity: light.reading
+      - type: light
+        entity: light.bedroomstrip
   - title: Data
     cards:
       - type: glance

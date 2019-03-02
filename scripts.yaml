@@ -89,7 +89,7 @@
       - service: media_player.volume_set
         data:
           entity_id: media_player.nad7050
-          volume_level: 0.40
+          volume_level: 0.50
       - service: script.radio
 
   radio:

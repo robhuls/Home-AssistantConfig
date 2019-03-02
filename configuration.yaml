@@ -15,6 +15,9 @@ frontend:
 lovelace:
   mode: yaml
 
+# System health
+system_health:
+
 # Alexa
 alexa:
 

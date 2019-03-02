@@ -90,12 +90,12 @@ zwave:
 
 # RFXCOM
 rfxtrx:
-  device: /dev/ttyUSB1
+  device: /dev/ttyUSB0
 
 # Smart meter, buienradar, Cresta, Fritz, Certificate, Hue sensors
 sensor:
   - platform: dsmr
-    port: /dev/ttyUSB0
+    port: /dev/ttyUSB1
     dsmr_version: 4
   - platform: rfxtrx
     devices:

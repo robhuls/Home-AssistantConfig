@@ -225,9 +225,10 @@ wake_on_lan:
 
 # NAD7050, spotify en LG
 media_player:
-  - platform: nadtcp
+  - platform: nad
+    type: TCP
     name: NAD7050
-    host: 192.168.10.23
+    host: 192.168.10.20
 #   - platform: spotify
 #     client_id: !secret spotify_id
 #     client_secret: !secret spotify_secret

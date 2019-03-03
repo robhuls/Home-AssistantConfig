@@ -1,57 +1,57 @@
-  operation:
-    name: Operation
-    view: yes
-    entities:
-      - scene.dark
-      - scene.normal
-      - scene.night
-      - scene.closed
-      - scene.open
-      - scene.movie
-      - cover.qubino_zmnhcdx_flush_shutter_level
-      - cover.qubino_zmnhcdx_flush_shutter_level_2
-      - cover.qubino_zmnhcdx_flush_shutter_level_3
-      - cover.qubino_zmnhcdx_flush_shutter_level_4
-      - cover.qubino_zmnhcdx_flush_shutter_level_5
-      - climate.woonkamer
-  media:
-    name: Media
-    view: yes
-    entities:
-      - media_player.lg_webos_smart_tv
-      - media_player.nad7050
-      - media_player.chromecast_tv
-      - media_player.chromecast_audio
-      - media_player.spotify
-      - group.radio
-      - group.alarm_clock
-      - scene.movie_light
-      - scene.no_light
-      - scene.normal_light
-      - scene.tv_mode
-  data:
-    name: data
-    view: yes
-    entities:
-      - group.energy
-      - group.temperatures
-      - group.data_usage
-      - history_graph.power
-  rolluiken:
-    name: Rolluiken
-    entities:
-      - cover.qubino_zmnhcdx_flush_shutter_switch
-      - cover.qubino_zmnhcdx_flush_shutter_switch_2
-      - cover.qubino_zmnhcdx_flush_shutter_switch_3
-      - cover.qubino_zmnhcdx_flush_shutter_switch_4
-      - cover.qubino_zmnhcdx_flush_shutter_switch_5
-  energy:
-    name: Energy
-    entities:
-      - sensor.power_consumption
-      - sensor.power_production
-      - sensor.power_production_total
-      - sensor.power_consumption_total
+  # operation:
+  #   name: Operation
+  #   view: yes
+  #   entities:
+  #     - scene.dark
+  #     - scene.normal
+  #     - scene.night
+  #     - scene.closed
+  #     - scene.open
+  #     - scene.movie
+  #     - cover.qubino_zmnhcdx_flush_shutter_level
+  #     - cover.qubino_zmnhcdx_flush_shutter_level_2
+  #     - cover.qubino_zmnhcdx_flush_shutter_level_3
+  #     - cover.qubino_zmnhcdx_flush_shutter_level_4
+  #     - cover.qubino_zmnhcdx_flush_shutter_level_5
+  #     - climate.woonkamer
+  # media:
+  #   name: Media
+  #   view: yes
+  #   entities:
+  #     - media_player.lg_webos_smart_tv
+  #     - media_player.nad7050
+  #     - media_player.chromecast_tv
+  #     - media_player.chromecast_audio
+  #     - media_player.spotify
+  #     - group.radio
+  #     - group.alarm_clock
+  #     - scene.movie_light
+  #     - scene.no_light
+  #     - scene.normal_light
+  #     - scene.tv_mode
+  # data:
+  #   name: data
+  #   view: yes
+  #   entities:
+  #     - group.energy
+  #     - group.temperatures
+  #     - group.data_usage
+  #     - history_graph.power
+  # rolluiken:
+  #   name: Rolluiken
+  #   entities:
+  #     - cover.qubino_zmnhcdx_flush_shutter_switch
+  #     - cover.qubino_zmnhcdx_flush_shutter_switch_2
+  #     - cover.qubino_zmnhcdx_flush_shutter_switch_3
+  #     - cover.qubino_zmnhcdx_flush_shutter_switch_4
+  #     - cover.qubino_zmnhcdx_flush_shutter_switch_5
+  # energy:
+  #   name: Energy
+  #   entities:
+  #     - sensor.power_consumption
+  #     - sensor.power_production
+  #     - sensor.power_production_total
+  #     - sensor.power_consumption_total
   hue_livingroom:
     name: Hue Livingroom
     entities:
@@ -64,33 +64,33 @@
     entities:
       - switch.kitchen_light_left
       - switch.kitchen_light_right
-  temperatures:
-    name: Temperatures
-    entities:
-      - sensor.outside_temperature
-      - sensor.livingroom_temperature
-      - sensor.hall_temperature
-      - sensor.qubino_zmnhcdx_flush_shutter_temperature
-      - sensor.kitchen_temperature
-      - sensor.restroom_temperature
-  # Data usage inside data tab
-  data_usage:
-    name: Data Usage
-    entities:
-      - sensor.download
-      - sensor.upload
-  # Alarm clock inside the media tab
-  alarm_clock:
-    name: Alarm Clock
-    entities:
-      - sensor.alarm_clock_time
-      - input_number.alarm_clock_hour
-      - input_number.alarm_clock_minute
-      - input_boolean.alarm_clock_radio
-      - input_boolean.alarm_clock_status
-  # Radio inside the media tab
-  radio:
-    name: Radio
-    entities:
-      - input_select.radio_station
-      - script.radio
+  # temperatures:
+  #   name: Temperatures
+  #   entities:
+  #     - sensor.outside_temperature
+  #     - sensor.livingroom_temperature
+  #     - sensor.hall_temperature
+  #     - sensor.qubino_zmnhcdx_flush_shutter_temperature
+  #     - sensor.kitchen_temperature
+  #     - sensor.restroom_temperature
+  # # Data usage inside data tab
+  # data_usage:
+  #   name: Data Usage
+  #   entities:
+  #     - sensor.download
+  #     - sensor.upload
+  # # Alarm clock inside the media tab
+  # alarm_clock:
+  #   name: Alarm Clock
+  #   entities:
+  #     - sensor.alarm_clock_time
+  #     - input_number.alarm_clock_hour
+  #     - input_number.alarm_clock_minute
+  #     - input_boolean.alarm_clock_radio
+  #     - input_boolean.alarm_clock_status
+  # # Radio inside the media tab
+  # radio:
+  #   name: Radio
+  #   entities:
+  #     - input_select.radio_station
+  #     - script.radio

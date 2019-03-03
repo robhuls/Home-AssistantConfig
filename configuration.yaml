@@ -73,12 +73,6 @@ tradfri:
 # Track the sun
 sun:
 
-# discover components
-# discovery:
-#   ignore:
-#     - daikin
-#     - apple_tv
-
 # Philips Hue lights
 hue:
   bridges:
@@ -213,10 +207,6 @@ device_tracker:
   - platform: fritz
     username: admin
     password: !secret fritz_pass
-#   - platform: icloud
-#     username: !secret icloud_name
-#     password: !secret icloud_pwd
-#     gps_accuracy_threshold: 20
 
 # Wake-on-lan for LG TV
 wake_on_lan:
@@ -250,13 +240,6 @@ media_player:
 daikin:
   hosts:
     - 192.168.10.26
-# climate:
-#   - platform: daikin
-#     name: daikin
-#     host: 192.168.10.26
-#     monitored_conditions:
-#       - inside_temperature
-#       - outside_temperature
 
 # Alexa intents
 intent_script:

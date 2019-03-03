@@ -96,14 +96,6 @@ sensor:
       0a520701310e00b43b0159:
         name: Livingroom
   - platform: fritzbox_netmonitor
-# How long did you watch TV today
-  - platform: history_stats
-    name: TV ON today
-    entity_id: media_player.lg_webos_smart_tv
-    state: 'playing'
-    type: time
-    start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
-    end: '{{ now() }}'
 # Parse sensor values from the philips Hue platform
   - platform: rest
     resource: http://192.168.10.22/api/9BMePcyRlGQlhW8UmJ5Qxa6-swybrhibFo39tT-D/sensors/2
@@ -316,7 +308,7 @@ input_select:
       - WDR 4
     icon: mdi:radio
 
-group: !include groups.yaml
+# group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml

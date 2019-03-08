@@ -9,7 +9,7 @@
       - service: media_player.volume_set
         data:
           entity_id: media_player.nad7050
-          volume_level: 0.80
+          volume_level: 0.66
       - service: media_player.select_source
         data_template: 
           entity_id: media_player.nad7050
@@ -19,6 +19,16 @@
         data:
           entity_id: media_player.lg_webos_smart_tv
           source: 'Netflix'
+      - delay: '00:01:00'
+      - service: media_player.select_source
+        data_template: 
+          entity_id: media_player.nad7050
+          source: Optical 1
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.nad7050
+          volume_level: 0.66
+
   youtube:
     sequence:
       - service: media_player.turn_on
@@ -42,7 +52,7 @@
       - service: media_player.volume_set
         data:
           entity_id: media_player.nad7050
-          volume_level: 0.80
+          volume_level: 0.66
       - delay: '00:01:00'
       - service: media_player.select_source
         data_template: 
@@ -51,7 +61,7 @@
       - service: media_player.volume_set
         data:
           entity_id: media_player.nad7050
-          volume_level: 0.80
+          volume_level: 0.66
 
   npo:
     sequence:
@@ -64,7 +74,7 @@
       - service: media_player.volume_set
         data:
           entity_id: media_player.nad7050
-          volume_level: 0.80
+          volume_level: 0.66
       - service: media_player.select_source
         data_template: 
           entity_id: media_player.nad7050
@@ -74,6 +84,15 @@
         data:
           entity_id: media_player.lg_webos_smart_tv
           source: 'NPO Start'
+      - delay: '00:01:00'
+      - service: media_player.select_source
+        data_template: 
+          entity_id: media_player.nad7050
+          source: Optical 1
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.nad7050
+          volume_level: 0.66
 
   wake_up:
     sequence:
@@ -89,7 +108,7 @@
       - service: media_player.volume_set
         data:
           entity_id: media_player.nad7050
-          volume_level: 0.50
+          volume_level: 0.33
       - service: script.radio
 
   radio:

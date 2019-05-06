@@ -89,6 +89,20 @@ views:
         hours_to_show: 1
         detail: 2
 
+  - title: Covers
+    cards:
+      - type: entities
+        entities:
+          - entity: cover.qubino_zmnhcdx_flush_shutter_switch
+            name: kitchen
+          - entity: cover.qubino_zmnhcdx_flush_shutter_switch_2
+            name: livingroom_left
+          - entity: cover.qubino_zmnhcdx_flush_shutter_switch_3
+            name: livingroom_right
+          - entity: cover.qubino_zmnhcdx_flush_shutter_switch_4
+            name: upstairs_side
+          - entity: cover.qubino_zmnhcdx_flush_shutter_switch_5
+            name: upstairs_front
   - title: Clock
     cards:
       - type: entities

@@ -114,6 +114,10 @@
   radio:
     alias: Play Radio
     sequence:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.tradfri_outlet
+      - delay: '00:00:20'
       - service: media_player.turn_on
         data_template:
           entity_id: media_player.nad7050
@@ -132,6 +136,7 @@
             {% elif is_state("input_select.radio_station", "40up Radio") %} http://40upstream.live-streams.nl:80/40up1
             {% elif is_state("input_select.radio_station", "Sublime FM") %} http://stream.sublimefm.nl/SublimeFM_mp3
             {% elif is_state("input_select.radio_station", "WDR 4") %} http://wdr-wdr4-live.icecast.wdr.de/wdr/wdr4/live/mp3/128/stream.mp3
+            {% elif is_state("input_select.radio_station", "qmusic") %} https://icecast-qmusicnl-cdp.triple-it.nl/Qmusic_nl_live_96.mp3
             {% endif %}
           media_content_type: 'audio/mp4'
   radio_1:

@@ -12,6 +12,7 @@ homeassistant:
       trusted_networks:
         - 127.0.0.1
         - 192.168.10.0/24
+    - type: homeassistant
 
 # Enable the frontend
 frontend:

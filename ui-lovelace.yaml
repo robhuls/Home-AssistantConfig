@@ -85,9 +85,6 @@ views:
         graph: line
         detail: 2
       - type: sensor
-        entity: sensor.livingroom_temperature
-        graph: line
-      - type: sensor
         entity: sensor.download
         graph: line
         hours_to_show: 1

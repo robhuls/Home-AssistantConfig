@@ -7,6 +7,8 @@ views:
           - scene.normal
           - scene.dark
           - scene.away
+          - scene.night
+          - scene.away
       - type: thermostat
         entity: climate.woonkamer
       - type: entities
@@ -32,6 +34,9 @@ views:
           - scene.movie
           - scene.dark
           - scene.normal
+          - script.netflix
+          - script.youtube
+          - script.npo
           - entity: switch.tradfri_outlet
             name: stereo power
   - title: Lights
@@ -55,6 +60,10 @@ views:
         entity: light.bedroomstrip
   - title: Data
     cards:
+      - type: picture-entity
+        entity: camera.buienradar_loop
+      - type: weather-forecast
+        entity: weather.br_unknown_station
       - type: glance
         entities:
           - entity: sensor.livingroom_temperature

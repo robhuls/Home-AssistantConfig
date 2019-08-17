@@ -60,16 +60,9 @@ history:
 # Configure the web interface
 http:
   server_port: 443
-  base_url: !secret base_url
+  # base_url: !secret base_url
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
-
-# Add the configuration editor and pi-hole UI element
-panel_iframe:
-  configurator:
-    title: Configurator
-    icon: mdi:wrench
-    url: https://hassio.local:3218
 
 tradfri:
   host: 192.168.10.49
@@ -90,7 +83,7 @@ zwave:
 rfxtrx:
   device: /dev/ttyUSB0
 
-# Smart meter, buienradar, Cresta, Fritz, Certificate, Hue sensors
+# Smart meter, Cresta, Fritz, Certificate, Hue sensors
 sensor:
   - platform: dsmr
     port: /dev/ttyUSB1
@@ -236,6 +229,14 @@ media_player:
 daikin:
   hosts:
     - 192.168.10.26
+
+# Buienradar picture and weather
+camera:
+  - platform: buienradar
+
+weather:
+  - platform: buienradar
+    forecast: true
 
 # Alexa intents
 intent_script:

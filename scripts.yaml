@@ -92,6 +92,9 @@
           entity_id: light.bedroomstrip
           brightness: 255
           transition: 180
+      - service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.alarm_clock_status
       - delay: '00:01:30'
       - service: media_player.volume_set
         data:

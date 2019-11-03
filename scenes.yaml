@@ -10,8 +10,6 @@
           state: off
         light.hall:
           state: off
-        climate.woonkamer:
-          operation_mode: 'off'
         light.bedroomstrip:
           state: on
         media_player.chromecast_audio:
@@ -35,17 +33,11 @@
           state: off
         media_player.chromecast_audio:
           state: off
-        climate.woonkamer:
-          operation_mode: 'off'
         switch.tradfri_outlet:
           state: off
+        climate.woonkamer:
+          state: off
 
-  - name: tv
-    entities:
-        media_player.lg_webos_smart_tv:
-          state: on
-        media_player.nad7050:
-          source: 'Optical 1'
   - name: movie
     entities:
         group.hue_livingroom:
@@ -120,11 +112,3 @@
     entities:
         light.bedroom:
           state: off
-  - name: heater
-    entities:
-        climate.woonkamer:
-          operation_mode: 'Heat'
-  - name: heater_off
-    entities:
-        climate.woonkamer:
-          operation_mode: 'Off'

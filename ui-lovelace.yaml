@@ -30,13 +30,13 @@ views:
         entity: media_player.chromecast_audio
       - type: entities
         entities:
-          - scene.tv
           - scene.movie
           - scene.dark
           - scene.normal
           - script.netflix
           - script.youtube
           - script.npo
+          - script.disney
           - entity: switch.tradfri_outlet
             name: stereo power
   - title: Lights

@@ -1,4 +1,4 @@
-  netflix:
+  tv:
     sequence:
       - service: media_player.turn_on
         data:
@@ -21,6 +21,24 @@
         data_template: 
           entity_id: media_player.nad7050
           source: Optical 1
+
+  disney:
+    sequence:
+      - service: script.turn_on
+        data_template:
+          entity_id: script.tv
+      - delay: '00:00:30'
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.lg_webos_smart_tv
+          source: 'Disney+'
+
+  netflix:
+    sequence:
+      - service: script.turn_on
+        data_template:
+          entity_id: script.tv
+      - delay: '00:00:30'
       - service: media_player.select_source
         data:
           entity_id: media_player.lg_webos_smart_tv
@@ -28,55 +46,21 @@
 
   youtube:
     sequence:
-      - service: media_player.turn_on
-        data:
-          entity_id: media_player.lg_webos_smart_tv
-      - service: media_player.turn_off
-        data:
-          entity_id: media_player.chromecast_audio
-      - service: switch.turn_on
-        data:
-          entity_id: switch.tradfri_outlet
+      - service: script.turn_on
+        data_template:
+          entity_id: script.tv
       - delay: '00:00:30'
       - service: media_player.select_source
         data:
           entity_id: media_player.lg_webos_smart_tv
           source: 'YouTube'
-      - service: media_player.turn_on
-        data:
-          entity_id: media_player.nad7050
-      - service: media_player.select_source
-        data_template: 
-          entity_id: media_player.nad7050
-          source: Optical 1
-      - service: media_player.volume_set
-        data:
-          entity_id: media_player.nad7050
-          volume_level: 0.66
 
   npo:
     sequence:
-      - service: media_player.turn_on
-        data:
-          entity_id: media_player.lg_webos_smart_tv
-      - service: media_player.turn_off
-        data:
-          entity_id: media_player.chromecast_audio
-      - service: switch.turn_on
-        data:
-          entity_id: switch.tradfri_outlet
+      - service: script.turn_on
+        data_template:
+          entity_id: script.tv
       - delay: '00:00:30'
-      - service: media_player.turn_on
-        data:
-          entity_id: media_player.nad7050
-      - service: media_player.volume_set
-        data:
-          entity_id: media_player.nad7050
-          volume_level: 0.66
-      - service: media_player.select_source
-        data_template: 
-          entity_id: media_player.nad7050
-          source: Optical 1
       - service: media_player.select_source
         data:
           entity_id: media_player.lg_webos_smart_tv

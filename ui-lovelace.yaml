@@ -13,8 +13,8 @@ views:
         entity: climate.woonkamer
       - type: entities
         entities:
-          - scene.open
-          - scene.closed
+          - script.open_covers
+          - script.close_covers
   - title: Media
     cards:
       - type: entities

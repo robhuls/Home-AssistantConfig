@@ -82,32 +82,7 @@
         state: on
         color_temp: 400
         brightness_pct: 100
-        transition: 300        
-# Covers do not work in combination with groups
-  - name: closed
-    entities:
-        cover.qubino_zmnhcdx_flush_shutter_switch:
-          state: closed
-        cover.qubino_zmnhcdx_flush_shutter_switch_2:
-          state: closed
-        cover.qubino_zmnhcdx_flush_shutter_switch_3:
-          state: closed
-        cover.qubino_zmnhcdx_flush_shutter_switch_4:
-          state: closed
-        cover.qubino_zmnhcdx_flush_shutter_switch_5:
-          state: closed
-  - name: open
-    entities:
-        cover.qubino_zmnhcdx_flush_shutter_switch:
-          state: open
-        cover.qubino_zmnhcdx_flush_shutter_switch_2:
-          state: open
-        cover.qubino_zmnhcdx_flush_shutter_switch_3:
-          state: open
-        cover.qubino_zmnhcdx_flush_shutter_switch_4:
-          state: open
-        cover.qubino_zmnhcdx_flush_shutter_switch_5:
-          state: open
+        transition: 300
   - name: bedroom_off
     entities:
         light.bedroom:

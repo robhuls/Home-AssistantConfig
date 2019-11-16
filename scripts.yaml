@@ -32,11 +32,6 @@
       - service: cover.close_cover
         data:
           entity_id: cover.qubino_zmnhcdx_flush_shutter_switch_5
-
-            # - cover.qubino_zmnhcdx_flush_shutter_switch_2
-            # - cover.qubino_zmnhcdx_flush_shutter_switch_3
-            # - cover.qubino_zmnhcdx_flush_shutter_switch_4
-            # - cover.qubino_zmnhcdx_flush_shutter_switch_5
           
   tv:
     sequence:
@@ -116,6 +111,7 @@
           entity_id: light.bedroomstrip
           brightness: 255
           transition: 180
+          color_temp: 153
       - service: input_boolean.turn_off
         data:
           entity_id: input_boolean.alarm_clock_status

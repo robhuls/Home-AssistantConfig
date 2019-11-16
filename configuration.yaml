@@ -38,6 +38,8 @@ logger:
   default: info
   logs:
     homeassistant.components.device_tracker.fritz: warning
+    buienradar.buienradar: error
+    buienradar.buienradar_json: error
 
 # Enable history
 recorder:

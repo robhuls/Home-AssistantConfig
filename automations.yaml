@@ -52,8 +52,8 @@
     event: sunset
     offset: '00:20:00'
   action:
-    service: scene.turn_on
-    entity_id: scene.closed
+      service: script.turn_on
+      entity_id: script.close_covers
 
 - alias: open covers when I am not home
   trigger:
@@ -64,8 +64,8 @@
     entity_id: device_tracker.iphone
     state: not_home
   action:
-    service: scene.turn_on
-    entity_id: scene.open
+      service: script.turn_on
+      entity_id: script.open_covers
 
 - alias: open covers at 1300 when it is hot
   trigger:
@@ -76,8 +76,8 @@
     entity_id: device_tracker.iphone
     state: not_home
   action:
-    service: scene.turn_on
-    entity_id: scene.open
+      service: script.turn_on
+      entity_id: script.open_covers
 
 - alias: lights on after sundown
   trigger:

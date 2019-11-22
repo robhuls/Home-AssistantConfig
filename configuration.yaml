@@ -14,24 +14,18 @@ homeassistant:
         - 192.168.10.0/24
     - type: homeassistant
 
-# Enable the frontend
-frontend:
+# Default config
+default_config:
 
 # Configure Lovelace using YAML
 lovelace:
   mode: yaml
-
-# System health
-system_health:
 
 # Alexa
 alexa:
 
 # Enable the hass.io tab
 hassio:
-
-# Enable configuration UI
-config:
 
 # Enable debug info
 logger:
@@ -50,6 +44,7 @@ recorder:
       - sensor.power_production
       - sensor.download
       - sensor.upload
+
 history:
   include:
     entities:
@@ -68,9 +63,6 @@ http:
 
 tradfri:
   host: 192.168.10.49
-
-# Track the sun
-sun:
 
 # Philips Hue lights
 hue:

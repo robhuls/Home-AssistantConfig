@@ -1,4 +1,5 @@
-  - name: night
+  - id: night
+    name: night
     entities:
         group.hue_livingroom:
           state: off
@@ -17,7 +18,8 @@
         switch.tradfri_outlet:
           state: off
 
-  - name: away
+  - id: away
+    name: away
     entities:
         group.hue_livingroom:
           state: off
@@ -38,7 +40,8 @@
         climate.woonkamer:
           state: off
 
-  - name: movie
+  - id: movie
+    name: movie
     entities:
         group.hue_livingroom:
           state: on
@@ -54,7 +57,8 @@
           state: off
         light.bedroom:
           state: off
-  - name: normal
+  - id: normal
+    name: normal
     entities:
         group.hue_livingroom:
           state: on
@@ -64,7 +68,8 @@
           state: on
         group.lights_kitchen:
           state: on
-  - name: dark
+  - id: dark
+    name: dark
     entities:
         group.hue_livingroom:
           state: off
@@ -76,14 +81,11 @@
           state: off
         light.hall:
           state: off
-  - name: fade_in_hue
+  - id: fade_in_hue
+    name: fade_in_hue
     entities:
       group.hue_livingroom:
         state: on
         color_temp: 400
         brightness_pct: 100
         transition: 300
-  - name: bedroom_off
-    entities:
-        light.bedroom:
-          state: off

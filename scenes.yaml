@@ -13,6 +13,8 @@
           state: off
         light.bedroomstrip:
           state: on
+          color_temp: 153
+          brightness_pct: 100
         media_player.chromecast_audio:
           state: off
         switch.tradfri_outlet:

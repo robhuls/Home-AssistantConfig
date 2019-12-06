@@ -7,8 +7,8 @@ views:
           - scene.normal
           - scene.dark
           - scene.away
-          - scene.night
-          - scene.away
+          - script.night
+          - scene.movie
       - type: thermostat
         entity: climate.woonkamer
       - type: entities

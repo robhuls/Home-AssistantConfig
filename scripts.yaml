@@ -132,6 +132,28 @@
           entity_id: media_player.nad7050
           volume_level: 0.33
       - service: script.radio
+  night:
+    sequence:
+      - service: light.turn_off
+        data:
+          entity_id: group.hue_livingroom
+      - service: light.turn_off
+        data:
+          entity_id: switch.bookcase_light
+      - service: light.turn_off
+        data:
+          entity_id: group.lights_kitchen
+      - service: light.turn_on
+        data:
+          entity_id: light.bedroomstrip
+          color_temp: 500
+          brightness: 255
+      - service: media_player.turn_off
+        data:
+          entity_id: media_player.chromecast_audio
+      - service: switch.turn_off
+        data:
+          entity_id: switch.tradfri_outlet
 
   radio:
     alias: Play Radio

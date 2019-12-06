@@ -15,6 +15,12 @@
       - service: cover.open_cover
         data:
           entity_id: cover.qubino_zmnhcdx_flush_shutter_switch_5
+      - service: cover.open_cover
+        data:
+          entity_id: cover.kleine_schuifpui
+      - service: cover.open_cover
+        data:
+          entity_id: cover.grote_schuifpui
   close_covers:
     sequence:
       - service: cover.close_cover
@@ -32,7 +38,12 @@
       - service: cover.close_cover
         data:
           entity_id: cover.qubino_zmnhcdx_flush_shutter_switch_5
-          
+      - service: cover.close_cover
+        data:
+          entity_id: cover.kleine_schuifpui
+      - service: cover.close_cover
+        data:
+          entity_id: cover.grote_schuifpui
   tv:
     sequence:
       - service: media_player.turn_on

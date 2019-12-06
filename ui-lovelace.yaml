@@ -109,6 +109,10 @@ views:
             name: upstairs_side
           - entity: cover.qubino_zmnhcdx_flush_shutter_switch_5
             name: upstairs_front
+          - entity: cover.grote_schuifpui
+            name: grote_schuifpui
+          - entity: cover.kleine_schuifpui
+            name: kleine_schuifpui
   - title: Clock
     cards:
       - type: entities

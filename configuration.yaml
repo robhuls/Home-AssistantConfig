@@ -61,6 +61,12 @@ http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 
+# Slide
+slide:
+  username: robhuls@gmail.com
+  password: !secret slide_password
+
+# IKEA tradfri
 tradfri:
   host: 192.168.10.49
 

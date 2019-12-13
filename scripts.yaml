@@ -137,10 +137,10 @@
       - service: light.turn_off
         data:
           entity_id: group.hue_livingroom
-      - service: light.turn_off
+      - service: switch.turn_off
         data:
           entity_id: switch.bookcase_light
-      - service: light.turn_off
+      - service: switch.turn_off
         data:
           entity_id: group.lights_kitchen
       - service: light.turn_on

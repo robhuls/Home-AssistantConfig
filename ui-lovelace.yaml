@@ -65,9 +65,9 @@ views:
       - type: weather-forecast
         entity: weather.br_unknown_station
       - type: glance
+        show_icon: false
+        title: Temperature
         entities:
-          - entity: sensor.livingroom_temperature
-            name: Living
           - entity: sensor.hall_temperature
             name: Hall
           - entity: sensor.qubino_zmnhcdx_flush_shutter_temperature
@@ -84,16 +84,28 @@ views:
         entity: sensor.power_production
         graph: line
         detail: 2
+      - type: glance
+        show_icon: false
+        title: Network
+        entities:
+          - entity: sensor.download
+            name: Download
+          - entity: sensor.upload
+            name: Upload
       - type: sensor
-        entity: sensor.download
-        graph: line
-        hours_to_show: 1
-        detail: 2
+        entity: sensor.gas_consumption
       - type: sensor
-        entity: sensor.upload
-        graph: line
-        hours_to_show: 1
-        detail: 2
+        entity: sensor.tradfri_on_off_switch
+      - type: glance
+        title: Light
+        show_icon: false
+        entities:
+          - entity: sensor.hall_light_level
+            name: Hall
+          - entity: sensor.kitchen_light_level
+            name: Scullery
+          - entity: sensor.restroom_light_level
+            name: Restroom
 
   - title: Covers
     cards:

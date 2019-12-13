@@ -1,4 +1,4 @@
-title: Home Assistant
+title: Home
 views:
   - title: Control
     cards:
@@ -68,13 +68,13 @@ views:
         show_icon: false
         title: Temperature
         entities:
-          - entity: sensor.hall_temperature
+          - entity: sensor.hall_temperature_2
             name: Hall
           - entity: sensor.qubino_zmnhcdx_flush_shutter_temperature
             name: Upstairs
-          - entity: sensor.kitchen_temperature
+          - entity: sensor.kitchen_temperature_2
             name: Kitchen
-          - entity: sensor.restroom_temperature
+          - entity: sensor.restroom_temperature_2
             name: Restroom
       - type: sensor
         entity: sensor.power_consumption
@@ -94,19 +94,36 @@ views:
             name: Upload
       - type: sensor
         entity: sensor.gas_consumption
-      - type: sensor
-        entity: sensor.tradfri_on_off_switch
+      - type: glance
+        show_icon: false
+        title: Battery
+        entities:
+          - entity: sensor.hue_battery_hall
+            name: Hall
+          - entity: sensor.hue_battery_restroom
+            name: Restroom
+          - entity: sensor.hue_battery_scullery
+            name: Scullery
+          - entity: sensor.tradfri_on_off_switch
+            name: Reading switch
       - type: glance
         title: Light
         show_icon: false
         entities:
-          - entity: sensor.hall_light_level
+          - entity: sensor.hue_light_hall
             name: Hall
-          - entity: sensor.kitchen_light_level
+          - entity: sensor.hue_light_scullery
             name: Scullery
-          - entity: sensor.restroom_light_level
+          - entity: sensor.hue_light_restroom
             name: Restroom
-
+      - type: glance
+        title: sun
+        show_icon: false
+        entities:
+          - entity: sensor.sunrise
+            name: sunrise
+          - entity: sensor.sunset
+            name: sunset
   - title: Covers
     cards:
       - type: entities

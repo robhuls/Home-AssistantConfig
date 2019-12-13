@@ -93,46 +93,48 @@ sensor:
       0a520701310e00b43b0159:
         name: Livingroom
   - platform: fritzbox_netmonitor
-# Parse sensor values from the philips Hue platform
-  - platform: rest
-    resource: http://192.168.10.22/api/9BMePcyRlGQlhW8UmJ5Qxa6-swybrhibFo39tT-D/sensors/2
-    value_template: '{{ value_json.state.temperature | float / 100 }}'
-    unit_of_measurement: °C
-    name: 'Hall temperature'
-  - platform: rest
-    resource: http://192.168.10.22/api/9BMePcyRlGQlhW8UmJ5Qxa6-swybrhibFo39tT-D/sensors/7
-    value_template: '{{ value_json.state.temperature | float / 100 }}'
-    unit_of_measurement: °C
-    name: 'Kitchen temperature'
-  - platform: rest
-    resource: http://192.168.10.22/api/9BMePcyRlGQlhW8UmJ5Qxa6-swybrhibFo39tT-D/sensors/11
-    value_template: '{{ value_json.state.temperature | float / 100 }}'
-    unit_of_measurement: °C
-    name: 'Restroom temperature'
-  - platform: rest
-    resource: http://192.168.10.22/api/9BMePcyRlGQlhW8UmJ5Qxa6-swybrhibFo39tT-D/sensors/4
-    value_template: '{{ value_json.state.lightlevel }}'
-    unit_of_measurement: Lux
-    name: 'Hall light level'
-  - platform: rest
-    resource: http://192.168.10.22/api/9BMePcyRlGQlhW8UmJ5Qxa6-swybrhibFo39tT-D/sensors/9
-    value_template: '{{ value_json.state.lightlevel }}'
-    unit_of_measurement: Lux
-    name: 'Kitchen light level'
-  - platform: rest
-    resource: http://192.168.10.22/api/9BMePcyRlGQlhW8UmJ5Qxa6-swybrhibFo39tT-D/sensors/13
-    value_template: '{{ value_json.state.lightlevel }}'
-    unit_of_measurement: Lux
-    name: 'Restroom light level'
-# Retrieve network speed
   - platform: template
     sensors:
+      # Retrieve network speed
       upload:
-        unit_of_measurement: 'Mbps'
+        unit_of_measurement: 'Mbit/s'
         value_template: "{{ '%.2f'|format(state_attr('sensor.fritz_netmonitor', 'transmission_rate_up')*8/1024/1024) }}"
       download:
-        unit_of_measurement: 'Mbps'
+        unit_of_measurement: 'Mbit/s'
         value_template: "{{ '%.2f'|format(state_attr('sensor.fritz_netmonitor', 'transmission_rate_down')*8/1024/1024) }}"
+      # Retrieve sun up/down
+      sunrise:
+        entity_id: sun.sun
+        friendly_name: 'Next Sunrise'
+        value_template: >
+          {{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom('%H:%M') }}
+        icon_template: mdi:weather-sunset-up
+      sunset:
+        entity_id: sun.sun
+        friendly_name: 'Next Sunset'
+        value_template: >
+          {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom('%H:%M') }}
+        icon_template: mdi:weather-sunset-down
+      # Extract Hue battery states
+      hue_battery_hall:
+        value_template: "{{ state_attr('sensor.hall_light_level_2', 'battery_level')}}"
+        unit_of_measurement: '%'
+      hue_battery_scullery:
+        value_template: "{{ state_attr('sensor.kitchen_light_level_2', 'battery_level')}}"
+        unit_of_measurement: '%'
+      hue_battery_restroom:
+        value_template: "{{ state_attr('sensor.restroom_light_level_2', 'battery_level')}}"
+        unit_of_measurement: '%'
+      # Extract Hue light levels
+      hue_light_hall:
+        value_template: "{{ state_attr('sensor.hall_light_level_2', 'lightlevel')}}"
+        unit_of_measurement: Lux
+      hue_light_restroom:
+        value_template: "{{ state_attr('sensor.restroom_light_level_2', 'lightlevel')}}"
+        unit_of_measurement: Lux
+      hue_light_scullery:
+        value_template: "{{ state_attr('sensor.kitchen_light_level_2', 'lightlevel')}}"
+        unit_of_measurement: Lux
 
 # Create an alarm clock
   - platform: time_date

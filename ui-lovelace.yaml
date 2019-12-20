@@ -76,14 +76,16 @@ views:
             name: Kitchen
           - entity: sensor.restroom_temperature_2
             name: Restroom
-      - type: sensor
-        entity: sensor.power_consumption
-        graph: line
-        detail: 2
-      - type: sensor
-        entity: sensor.power_production
-        graph: line
-        detail: 2
+      - type: glance
+        show_icon: false
+        title: Power
+        entities:
+          - entity: sensor.power_consumption
+            name: Consumption
+          - entity: sensor.power_production
+            name: Production
+          - entity: sensor.gas_consumption
+            name: Gas
       - type: glance
         show_icon: false
         title: Network
@@ -92,8 +94,6 @@ views:
             name: Download
           - entity: sensor.upload
             name: Upload
-      - type: sensor
-        entity: sensor.gas_consumption
       - type: glance
         show_icon: false
         title: Battery

@@ -124,6 +124,10 @@ views:
             name: sunrise
           - entity: sensor.sunset
             name: sunset
+      - type: sensor
+        entity: sensor.rova_paper_date
+        name: Rova papier
+      
   - title: Covers
     cards:
       - type: entities

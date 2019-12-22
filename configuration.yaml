@@ -93,8 +93,16 @@ sensor:
       0a520701310e00b43b0159:
         name: Livingroom
   - platform: fritzbox_netmonitor
+  - platform: rova
+    zip_code: 8043JH
+    house_number: 64
+    monitored_conditions:
+      - paper
   - platform: template
     sensors:
+      # Format ROVA time
+      rova_paper_date:
+        value_template: "{{ as_timestamp(states('sensor.rova_paper'))| timestamp_custom('%d-%m-%Y') }}"
       # Retrieve network speed
       upload:
         unit_of_measurement: 'Mbit/s'

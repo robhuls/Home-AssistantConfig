@@ -1,4 +1,5 @@
   open_covers:
+    alias: Open covers and curtains
     sequence:
       - service: cover.open_cover
         data:
@@ -22,6 +23,7 @@
         data:
           entity_id: cover.grote_schuifpui
   close_covers:
+    alias: Close covers and curtains
     sequence:
       - service: cover.close_cover
         data:

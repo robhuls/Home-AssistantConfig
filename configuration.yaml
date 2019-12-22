@@ -89,9 +89,14 @@ sensor:
     port: /dev/ttyUSB1
     dsmr_version: 4
   - platform: rfxtrx
+    automatic_add: true
     devices:
-      0a520701310e00b43b0159:
+      0a520700330e00d7300159:
         name: Livingroom
+        data_type:
+         - Humidity
+         - Temperature
+         - Battery numeric
   - platform: fritzbox_netmonitor
   - platform: rova
     zip_code: 8043JH

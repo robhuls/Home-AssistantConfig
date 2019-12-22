@@ -76,6 +76,8 @@ views:
             name: Kitchen
           - entity: sensor.restroom_temperature_2
             name: Restroom
+          - entity: sensor.livingroom_temperature
+            name: Livingroom
       - type: glance
         show_icon: false
         title: Power
@@ -106,6 +108,8 @@ views:
             name: Scullery
           - entity: sensor.tradfri_on_off_switch
             name: Reading switch
+          - entity: sensor.livingroom_battery_numeric
+            name: Cresta
       - type: glance
         title: Light
         show_icon: false
@@ -127,6 +131,9 @@ views:
       - type: sensor
         entity: sensor.rova_paper_date
         name: Rova papier
+      - type: sensor
+        entity: sensor.livingroom_humidity
+        name: Humidity
       
   - title: Covers
     cards:

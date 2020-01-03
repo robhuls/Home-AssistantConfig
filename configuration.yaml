@@ -40,6 +40,10 @@ recorder:
   include:
     entities:
       - sensor.livingroom_temperature
+      - sensor.hall_temperature_2
+      - sensor.kitchen_temperature_2
+      - sensor.qubino_zmnhcdx_flush_shutter_temperature
+      - sensor.restroom_temperature_2
       - sensor.power_consumption
       - sensor.power_production
       - sensor.download
@@ -49,6 +53,10 @@ history:
   include:
     entities:
       - sensor.livingroom_temperature
+      - sensor.hall_temperature_2
+      - sensor.kitchen_temperature_2
+      - sensor.qubino_zmnhcdx_flush_shutter_temperature
+      - sensor.restroom_temperature_2
       - sensor.power_consumption
       - sensor.power_production
       - sensor.download

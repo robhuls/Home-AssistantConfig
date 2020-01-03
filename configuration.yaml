@@ -35,6 +35,17 @@ logger:
     buienradar.buienradar: error
     buienradar.buienradar_json: error
 
+# Persons
+person:
+  - name: Rob
+    id: rob123
+    device_trackers:
+      - device_tracker.iphone
+  - name: Anne
+    id: anne123
+    device_trackers:
+      - device_tracker.iphone_van_anne
+
 # Enable history
 recorder:
   include:

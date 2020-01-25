@@ -245,20 +245,20 @@ media_player:
 #   - platform: spotify
 #     client_id: !secret spotify_id
 #     client_secret: !secret spotify_secret
-  - platform: webostv
-    host: 192.168.10.47
-    turn_on_action:
-      service: wake_on_lan.send_magic_packet
-      data:
-        mac: "78-5D-C8-F0-32-4F"
-    customize:
-      sources:
-        - youtube
-        - netflix
-        - NPO Start
-        - Disney+
-        - HDMI 1
-        - HDMI 2
+webostv:
+  host: 192.168.10.47
+  turn_on_action:
+    service: wake_on_lan.send_magic_packet
+    data:
+      mac: "78-5D-C8-F0-32-4F"
+  customize:
+    sources:
+      - youtube
+      - netflix
+      - NPO Start
+      - Disney+
+      - HDMI 1
+      - HDMI 2
 
 # Daikin heat pump
 daikin:

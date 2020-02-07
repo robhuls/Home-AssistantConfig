@@ -79,10 +79,6 @@
           state: off
         group.lights_kitchen:
           state: off
-        light.bedroom:
-          state: off
-        light.hall:
-          state: off
   - id: fade_in_hue
     name: fade_in_hue
     entities:

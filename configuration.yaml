@@ -234,7 +234,7 @@ device_tracker:
 # Wake-on-lan for LG TV
 wake_on_lan:
 
-# NAD7050, spotify en LG
+# NAD7050
 media_player:
   - platform: nad
     type: TCP
@@ -242,9 +242,8 @@ media_player:
     host: 192.168.10.20
     min_volume: -60
     max_volume: 0
-#   - platform: spotify
-#     client_id: !secret spotify_id
-#     client_secret: !secret spotify_secret
+
+# LG OLED
 webostv:
   host: 192.168.10.47
   turn_on_action:

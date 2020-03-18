@@ -19,6 +19,8 @@
           state: off
         switch.tradfri_outlet:
           state: off
+        climate.woonkamer:
+          state: off
 
   - id: away
     name: away

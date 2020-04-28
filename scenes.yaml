@@ -23,12 +23,16 @@
   - id: movie
     name: movie
     entities:
-        group.hue_livingroom:
+        light.livingroom_back:
           state: on
-          color_temp: 500
-          brightness_pct: 10
-        switch.bookcase_light:
+        light.livingroom_right:
           state: off
+        light.livingroom_left:
+          state: off
+        light.livingroom_corner:
+          state: on
+        switch.bookcase_light:
+          state: on
         group.lights_kitchen:
           state: off
         light.kitchenlight:

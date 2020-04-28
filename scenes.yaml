@@ -46,8 +46,6 @@
     entities:
         group.hue_livingroom:
           state: on
-          color_temp: 400
-          brightness_pct: 100
         switch.bookcase_light:
           state: on
         group.lights_kitchen:
@@ -67,5 +65,3 @@
       group.hue_livingroom:
         state: on
         color_temp: 400
-        brightness_pct: 100
-        transition: 300

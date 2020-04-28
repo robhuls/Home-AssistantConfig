@@ -139,7 +139,6 @@
         temperature: 18
 
 - alias: Hue light on gradually with alarm
-  hide_entity: False
   trigger:
     platform: template
     value_template: '{{ states.sensor.time.state == states.sensor.alarm_clock_time_long.state }}'
@@ -149,3 +148,46 @@
     state: 'on'
   action:
     service: script.wake_up
+
+- alias: "Action Night"
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: ios.action_fired
+    event_data:
+      actionName: 'Night'
+  action:
+    service: script.night
+
+- alias: "Action Movie"
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: ios.action_fired
+    event_data:
+      actionName: 'Movie'
+  action:
+    service: scene.turn_on
+    entity_id: scene.movie
+
+- alias: "Action Normal"
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: ios.action_fired
+    event_data:
+      actionName: 'Normal'
+  action:
+    service: scene.turn_on
+    entity_id: scene.normal
+
+- alias: "Action Dark"
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: ios.action_fired
+    event_data:
+      actionName: 'Dark'
+  action:
+    service: scene.turn_on
+    entity_id: scene.dark
